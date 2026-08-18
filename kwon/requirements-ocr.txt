@@ -1,0 +1,2 @@
+-r requirements.txt
+# OCR도 OpenAI Vision이 담당하므로 별도의 EasyOCR 설치가 필요하지 않습니다.
