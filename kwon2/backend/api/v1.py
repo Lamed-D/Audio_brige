@@ -232,7 +232,8 @@ def job_create():
     ):
         return error_response(
             "MEDIA_MISMATCH",
-            f"등록된 영상 길이와 {DURATION_TOLERANCE_MS}ms 넘게 차이 납니다",
+            f"등록된 영상 길이와 {DURATION_TOLERANCE_MS}ms 넘게 차이 납니다 "
+            f"(요청 {duration_ms}ms, 등록 {video.duration_ms}ms)",
             409,
         )
 

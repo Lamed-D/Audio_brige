@@ -147,3 +147,36 @@ def test_run_pipeline_auto_registers_unknown_video(tmp_path: Path, synthetic_vid
     registered = repository.get_catalog_video("youtube", "new-video")
     assert registered is not None
     assert registered.duration_ms == result["manifest"]["video"]["duration_ms"]
+
+
+def test_run_pipeline_corrects_unpublished_browser_duration_hint(
+    tmp_path: Path, synthetic_video: str
+):
+    """게시 전 브라우저 길이는 힌트이며 다운로드 실측값으로 교정한다."""
+    data_dir = tmp_path / "data"
+    write_catalog(
+        data_dir,
+        videos=[
+            {
+                "provider": "youtube",
+                "video_id": "playlist-video",
+                "duration_ms": 37_901,
+                "enabled": True,
+            }
+        ],
+    )
+    repository = FileRepository(data_dir)
+
+    result = run_pipeline(
+        "youtube",
+        "playlist-video",
+        synthetic_video,
+        repository,
+        FakeAdapter(),
+        runs_dir=tmp_path / "runs",
+    )
+
+    registered = repository.get_catalog_video("youtube", "playlist-video")
+    assert registered is not None
+    assert registered.duration_ms == result["manifest"]["video"]["duration_ms"]
+    assert registered.duration_ms != 37_901

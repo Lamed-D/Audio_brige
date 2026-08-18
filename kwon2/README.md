@@ -1,7 +1,7 @@
 # VOICE BRIDGE (들리는 화면)
 
-이 디렉터리는 화면해설 분석 백엔드입니다. 실제 Chrome 프론트엔드는 같은 상위 폴더의
-`chrome-extension-boilerplate-main`이며, 이 폴더의 예전 `extension/`은 참고용입니다.
+이 디렉터리는 화면해설 분석 백엔드와 VOICE BRIDGE 1.2.0 Chrome 확장 프로그램입니다.
+실제로 Chrome에 로드할 프론트엔드는 이 폴더의 `extension/`입니다.
 
 > 구현 기준은 `VOICE_BRIDGE_개발분담_연동규격_v1.2.md`의 manifest schema `1.1`과 JobStatus 규격입니다. 첨부 문서는 연동 계약 참고자료로만 사용했으며, 실제 동작은 이 저장소 코드와 아래 설명을 기준으로 합니다.
 
@@ -74,7 +74,7 @@ kwon2/
     static/
       test.html          # /v1·/dev API 수동 테스트 페이지
     tests/               # pytest — contracts, storage, v1 API, pipeline
-  extension/             # 구형 참고 구현; 실제 제품은 ../chrome-extension-boilerplate-main
+  extension/             # Chrome에 직접 로드하는 VOICE BRIDGE 1.2.0
     manifest.json
     background.js
     content.js
@@ -399,7 +399,7 @@ Backend를 띄운 뒤 `http://127.0.0.1:5000/static/test.html`을 열면 확장�
 ## 7. Chrome 확장프로그램 로드
 
 `backend/static/test.html`은 개발자용 API 검사 화면일 뿐, 사용자 제품 화면이 아닙니다.
-실제 사용 화면은 `chrome-extension-boilerplate-main/extension`을 Chrome에 로드했을 때
+실제 사용 화면은 `kwon2/extension`을 Chrome에 로드했을 때
 나타나는 Side Panel입니다. 영상 다운로드·OpenAI 분석·TTS는 API 키를 숨기기 위해
 백엔드가 담당하고, 확장프로그램은 현재 YouTube 영상을 식별해 작업을 요청하고 결과를
 동기화 재생합니다.
@@ -408,7 +408,7 @@ Backend를 띄운 뒤 `http://127.0.0.1:5000/static/test.html`을 열면 확장�
 2. Chrome에서 `chrome://extensions`를 엽니다.
 3. 오른쪽 위 **개발자 모드**를 켭니다.
 4. **압축해제된 확장 프로그램을 로드합니다**를 누릅니다.
-5. `Audio_brige\chrome-extension-boilerplate-main\extension` 폴더를 선택합니다.
+5. `Audio_brige\kwon2\extension` 폴더를 선택합니다.
 6. 표시된 확장 ID를 `.env`의 `VOICE_BRIDGE_CORS_ORIGINS`에 반영하고 Backend를 재시작합니다.
 7. Catalog와 manifest에 등록한 `https://www.youtube.com/watch?v=<video_id>` 영상을 엽니다.
 8. Chrome 도구 모음의 **VOICE BRIDGE** 아이콘을 눌러 Side Panel을 엽니다.

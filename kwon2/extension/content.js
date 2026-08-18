@@ -3,6 +3,9 @@
 const PROVIDER = "youtube";
 const SCHEMA_VERSION = "1.1";
 const MAX_DURATION_DRIFT_MS = 1000;
+const DURATION_STABILITY_MS = 1200;
+const DURATION_SAMPLE_TOLERANCE_MS = 250;
+const METADATA_RETRY_MS = 350;
 const LATE_SKIP_MS = 250;
 const DEFAULT_DUCK_FACTOR = 0.35;
 const VIDEO_ID_RE = /^[A-Za-z0-9_-]{6,20}$/;
@@ -37,6 +40,7 @@ const state = {
   extendedPause: null,
   suppressPauseEvent: false,
   volume: null,
+  durationProbe: null,
 };
 
 function clamp(value, min, max) {
@@ -94,6 +98,69 @@ function findYouTubeVideo() {
 function finiteDurationMs(video) {
   if (!video || !Number.isFinite(video.duration) || video.duration <= 0) return null;
   return Math.round(video.duration * 1000);
+}
+
+function playerVideoId() {
+  const player = document.querySelector("#movie_player");
+  if (!player || typeof player.getVideoData !== "function") return null;
+  try {
+    const data = player.getVideoData();
+    return data && typeof data.video_id === "string" ? data.video_id : null;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function stableDurationMs(video, identity) {
+  if (!video || !identity) return null;
+  const player = document.querySelector("#movie_player");
+  if (player && player.classList.contains("ad-showing")) return null;
+
+  // YouTube는 재생목록/SPA 전환 때 URL을 먼저 바꾸고 같은 <video>의 이전
+  // metadata를 잠시 유지할 수 있다. URL의 ID와 플레이어 내부 ID가 일치하기
+  // 전에는 이전 영상의 duration을 새 영상 값으로 등록하지 않는다.
+  const internalVideoId = playerVideoId();
+  if (internalVideoId && internalVideoId !== identity.video_id) return null;
+
+  const elementDurationMs = finiteDurationMs(video);
+  if (!elementDurationMs) return null;
+  let durationMs = elementDurationMs;
+  if (player && typeof player.getDuration === "function") {
+    try {
+      const playerDurationMs = Math.round(Number(player.getDuration()) * 1000);
+      if (Number.isFinite(playerDurationMs) && playerDurationMs > 0) {
+        if (Math.abs(playerDurationMs - elementDurationMs) > MAX_DURATION_DRIFT_MS) return null;
+        durationMs = playerDurationMs;
+      }
+    } catch (_error) {
+      // 공개되지 않은 플레이어 함수는 보조 검증일 뿐이므로 video.duration을 쓴다.
+    }
+  }
+
+  const now = Date.now();
+  const probe = state.durationProbe;
+  if (
+    !probe ||
+    probe.videoKey !== identity.video_key ||
+    Math.abs(probe.durationMs - durationMs) > DURATION_SAMPLE_TOLERANCE_MS
+  ) {
+    state.durationProbe = { videoKey: identity.video_key, durationMs, firstSeenAt: now };
+    return null;
+  }
+  probe.durationMs = durationMs;
+  return now - probe.firstSeenAt >= DURATION_STABILITY_MS ? durationMs : null;
+}
+
+function resetDurationProbe() {
+  state.durationProbe = null;
+}
+
+function retryAfterMetadataSettles() {
+  if (!state.enabled || state.processingTimer) return;
+  state.processingTimer = setTimeout(() => {
+    state.processingTimer = null;
+    void requestManifest();
+  }, METADATA_RETRY_MS);
 }
 
 function clearTimer(name) {
@@ -609,8 +676,12 @@ async function installManifest(message) {
   if (!state.enabled || !state.video || !state.identity) return;
   if (message.video_key && message.video_key !== state.identity.video_key) return;
   if (!message.video_key && message.request_id && state.requestId && message.request_id !== state.requestId) return;
-  const durationMs = finiteDurationMs(state.video);
-  if (!durationMs) return;
+  const durationMs = stableDurationMs(state.video, state.identity);
+  if (!durationMs) {
+    reportStatus("waiting-video", null);
+    retryAfterMetadataSettles();
+    return;
+  }
   try {
     const manifest = validateManifest(message.manifest, { ...state.identity, duration_ms: durationMs });
     if (message.video_key !== state.identity.video_key || message.revision !== manifest.revision) {
@@ -646,9 +717,10 @@ function handleProcessing(message) {
 
 async function requestManifest() {
   if (!state.enabled || !state.video || !state.identity) return;
-  const durationMs = finiteDurationMs(state.video);
+  const durationMs = stableDurationMs(state.video, state.identity);
   if (!durationMs) {
     reportStatus("waiting-video", null);
+    retryAfterMetadataSettles();
     return;
   }
   const id = requestId("manifest");
@@ -688,12 +760,13 @@ async function bindCurrentVideo(reason) {
       state.video = null;
       state.identity = null;
       state.volume = null;
+      resetDurationProbe();
     }
     reportStatus("waiting-video", null);
     return;
   }
   if (state.video === video && state.identity && state.identity.video_key === identity.video_key) {
-    if (!state.manifest && !state.processingTimer && finiteDurationMs(video)) void requestManifest();
+    if (!state.manifest && !state.processingTimer) void requestManifest();
     return;
   }
 
@@ -704,10 +777,10 @@ async function bindCurrentVideo(reason) {
   resetManifestState();
   state.video = video;
   state.identity = identity;
+  resetDurationProbe();
   initializeVolumeState(video);
   attachVideoListeners(video);
-  if (finiteDurationMs(video)) void requestManifest();
-  else reportStatus("waiting-video", null);
+  void requestManifest();
 }
 
 function scheduleReconcile(reason) {
@@ -738,6 +811,7 @@ async function disableFeature(reason = "disable") {
   state.video = null;
   state.identity = null;
   state.volume = null;
+  resetDurationProbe();
   resetManifestState();
 }
 
@@ -814,8 +888,11 @@ function onVideoEnded() {
 
 function onVideoMetadata() {
   if (!state.enabled || !state.video) return;
-  const durationMs = finiteDurationMs(state.video);
-  if (!durationMs) return;
+  const durationMs = stableDurationMs(state.video, state.identity);
+  if (!durationMs) {
+    retryAfterMetadataSettles();
+    return;
+  }
   if (state.manifest && Math.abs(state.manifest.video.duration_ms - durationMs) > MAX_DURATION_DRIFT_MS) {
     void stopAudio("duration-change").then(() => {
       resetManifestState();

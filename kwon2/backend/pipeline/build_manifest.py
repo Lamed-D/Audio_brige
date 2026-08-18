@@ -202,14 +202,28 @@ def run_pipeline(
             video = repository.upsert_catalog_video(provider, video_id, duration_ms)
             log.info("카탈로그에 새로 등록: %s:%s (%dms)", provider, video_id, duration_ms)
         elif abs(duration_ms - video.duration_ms) > DURATION_TOLERANCE_MS:
-            log.error(
-                "영상 길이가 catalog 등록값과 %dms 넘게 다릅니다: 실측 %dms, 등록 %dms",
-                DURATION_TOLERANCE_MS, duration_ms, video.duration_ms,
-            )
-            raise PipelineError(
-                f"영상 길이가 catalog 등록값과 {DURATION_TOLERANCE_MS}ms 넘게 다릅니다: "
-                f"실측 {duration_ms}ms, 등록 {video.duration_ms}ms"
-            )
+            # 아직 게시된 manifest가 없다면 catalog 길이는 브라우저가 최초 작업을
+            # 시작할 때 보낸 힌트일 뿐이다. YouTube SPA/재생목록 전환 중에는 이전
+            # 영상의 duration이 잠시 남을 수 있으므로 다운로드 후 ffmpeg로 잰 값을
+            # 최종 기준으로 승격한다. 이미 게시된 manifest가 있는 영상은 동기화
+            # 안전을 위해 기존처럼 다른 미디어로 간주한다.
+            existing_manifest = repository.find_manifest(provider, video_id, video)
+            if existing_manifest is None:
+                log.warning(
+                    "게시 전 catalog 길이를 실측값으로 교정: 등록 %dms -> 실측 %dms",
+                    video.duration_ms,
+                    duration_ms,
+                )
+                video = repository.upsert_catalog_video(provider, video_id, duration_ms)
+            else:
+                log.error(
+                    "영상 길이가 catalog 등록값과 %dms 넘게 다릅니다: 실측 %dms, 등록 %dms",
+                    DURATION_TOLERANCE_MS, duration_ms, video.duration_ms,
+                )
+                raise PipelineError(
+                    f"영상 길이가 catalog 등록값과 {DURATION_TOLERANCE_MS}ms 넘게 다릅니다: "
+                    f"실측 {duration_ms}ms, 등록 {video.duration_ms}ms"
+                )
 
         log.info("M2: 전사 및 무음 구간 산출 시작")
         progress("audio_analysis", 20)

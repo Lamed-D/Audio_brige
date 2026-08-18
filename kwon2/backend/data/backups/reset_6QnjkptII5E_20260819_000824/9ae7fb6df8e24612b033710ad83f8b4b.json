@@ -1,0 +1,18 @@
+{
+  "job_id": "9ae7fb6df8e24612b033710ad83f8b4b",
+  "provider": "youtube",
+  "video_id": "6QnjkptII5E",
+  "duration_ms": 37901,
+  "status": "failed",
+  "stage": "validation",
+  "progress_percent": 15,
+  "eta_seconds": null,
+  "eta_confidence": null,
+  "created_at": "2026-08-18T14:51:03.430Z",
+  "updated_at": "2026-08-18T14:58:52.476Z",
+  "error": {
+    "code": "PIPELINE_FAILED",
+    "message": "영상 길이가 catalog 등록값과 1000ms 넘게 다릅니다: 실측 191170ms, 등록 37901ms",
+    "retryable": true
+  }
+}
