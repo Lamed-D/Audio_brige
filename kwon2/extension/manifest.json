@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "minimum_chrome_version": "116",
+  "name": "VOICE BRIDGE",
+  "version": "1.2.0",
+  "description": "YouTube 영상용 화면해설 매니페스트를 불러와 재생 시점에 맞춰 음성으로 제공합니다.",
+  "permissions": ["alarms", "notifications", "offscreen", "storage", "sidePanel", "activeTab"],
+  "host_permissions": ["http://127.0.0.1:5000/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "VOICE BRIDGE 열기"
+  },
+  "commands": {
+    "announce-progress": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "현재 처리 진행률 알림"
+    }
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*",
+        "https://youtube.com/*",
+        "https://youtu.be/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

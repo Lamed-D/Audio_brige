@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="VOICE BRIDGE">
+  <rect width="128" height="128" rx="24" fill="#075985"/>
+  <path d="M24 47h13l17-16v66L37 81H24z" fill="#fff"/>
+  <path d="M73 43c10 10 10 32 0 42M87 31c18 18 18 48 0 66" fill="none" stroke="#F2C14E" stroke-width="9" stroke-linecap="round"/>
+</svg>

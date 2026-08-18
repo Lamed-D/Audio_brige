@@ -1,0 +1,15 @@
+# Local secrets and virtual environment
+backend/.env
+backend/.venv/
+
+# Generated pipeline artifacts (source audio and video frames can be large/private)
+backend/runs/
+
+# Runtime-published outputs. Keep only directory placeholders in Git.
+backend/data/audio/*
+!backend/data/audio/.gitkeep
+backend/data/manifests/**
+!backend/data/manifests/.gitkeep
+backend/data/*.sqlite3
+backend/data/*.sqlite3-shm
+backend/data/*.sqlite3-wal

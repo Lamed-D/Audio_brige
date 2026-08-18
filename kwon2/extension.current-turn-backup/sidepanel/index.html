@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VOICE BRIDGE</title>
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>VOICE BRIDGE</h1>
+      <p>YouTube 화면해설</p>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="current-status-label">
+        <h2 id="current-status-label" class="sr-only">현재 상태</h2>
+        <div class="status-row">
+          <span id="status-dot" class="dot" aria-hidden="true"></span>
+          <div class="status-copy">
+            <p id="scheduler-status" class="status" data-state="loading" role="status" aria-live="polite">
+              상태 확인 중
+            </p>
+            <p id="job-summary" class="detail"></p>
+          </div>
+        </div>
+        <p id="player-title" class="video-title"></p>
+
+        <section id="generation-status" aria-labelledby="generation-heading" hidden>
+          <h3 id="generation-heading" class="sr-only">화면해설 생성 상태</h3>
+          <div id="job-progress-content" hidden>
+            <div class="progress-heading">
+              <span id="job-stage">분석 대기 중</span>
+              <output id="job-progress-output" for="job-progress">0%</output>
+            </div>
+            <progress id="job-progress" min="0" max="100" value="0">0%</progress>
+            <p id="job-eta" class="detail">예상 시간 계산 중</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="card" aria-labelledby="pause-label">
+        <div class="check-row">
+          <input id="auto-pause-enabled" type="checkbox" checked />
+          <div>
+            <label id="pause-label" for="auto-pause-enabled">중요 해설에서 영상 잠시 멈춤</label>
+            <p class="hint">자연 무음에 들어가지 않는 중요한 해설만 최대 8초 동안 재생합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <button id="description-toggle" class="primary-button" type="button" aria-pressed="false" disabled>
+        화면해설 켜기
+      </button>
+
+      <section class="card volume-card" aria-labelledby="duck-label">
+        <label id="duck-label" for="duck-factor">원본 소리 크기</label>
+        <div class="range-row">
+          <input id="duck-factor" type="range" min="10" max="100" step="5" value="35" />
+          <output id="duck-factor-output" for="duck-factor">35%</output>
+        </div>
+        <p class="hint">해설 중 원본 영상에 적용할 볼륨 비율입니다.</p>
+      </section>
+
+      <div class="backend-status">
+        <span id="backend-dot" class="dot" aria-hidden="true"></span>
+        <span id="backend-status">로컬 API 확인 중</span>
+        <button id="backend-retry" type="button">다시 확인</button>
+      </div>
+
+      <details class="diagnostics">
+        <summary>진단 정보</summary>
+        <dl>
+          <div><dt>확장 버전</dt><dd id="extension-version">-</dd></div>
+          <div><dt>연동 규격</dt><dd id="schema-version">-</dd></div>
+          <div><dt>확장 상태</dt><dd id="runtime-status">확인 중</dd></div>
+          <div><dt>플랫폼</dt><dd id="player-provider">-</dd></div>
+          <div><dt>영상 ID</dt><dd id="player-video-id">-</dd></div>
+          <div><dt>재생 상태</dt><dd id="player-state">-</dd></div>
+          <div><dt>재생 위치</dt><dd id="player-position">-</dd></div>
+          <div><dt>재생 속도</dt><dd id="player-rate">-</dd></div>
+          <div><dt>Manifest</dt><dd id="scheduler-manifest-id">-</dd></div>
+          <div><dt>처리 구간</dt><dd id="scheduler-progress">-</dd></div>
+          <div><dt>음성 엔진</dt><dd id="scheduler-audio-state">-</dd></div>
+          <div><dt>다음 구간</dt><dd id="scheduler-next">-</dd></div>
+          <div><dt>최근 결과</dt><dd id="scheduler-last-event">-</dd></div>
+        </dl>
+      </details>
+    </main>
+
+    <p id="accessibility-announcement" class="sr-only" role="status" aria-live="polite"></p>
+    <script src="../sidepanel.js"></script>
+  </body>
+</html>

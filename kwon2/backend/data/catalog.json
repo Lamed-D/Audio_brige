@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "videos": [
+    {
+      "provider": "youtube",
+      "video_id": "abc123",
+      "duration_ms": 512400,
+      "enabled": true
+    },
+    {
+      "provider": "youtube",
+      "video_id": "5e5fp21dqWA",
+      "duration_ms": 319158,
+      "enabled": true
+    },
+    {
+      "provider": "youtube",
+      "video_id": "g3hVg98AMlI",
+      "duration_ms": 253021,
+      "enabled": true
+    }
+  ]
+}
