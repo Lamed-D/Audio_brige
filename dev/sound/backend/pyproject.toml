@@ -1,0 +1,27 @@
+[project]
+name = "sound-bridge-backend"
+version = "0.1.0"
+description = "들리는 화면 - versioned manifest 화면해설 백엔드 (Flask)"
+requires-python = ">=3.11"
+dependencies = [
+    "flask>=3.0",
+    "flask-cors>=4.0",
+    "numpy>=1.26",
+    "soundfile>=0.12",
+    "opencv-python>=4.9",
+    "imageio-ffmpeg>=0.4.9",
+    "pillow>=10.0",
+    "openai>=1.40",
+    "python-dotenv>=1.0",
+    "yt-dlp>=2024.8.6",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["."]

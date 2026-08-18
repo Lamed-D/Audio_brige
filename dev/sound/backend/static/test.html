@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>들리는 화면 - /v1 API 테스트</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 24px auto; padding: 0 16px; color: #222; }
+  h1 { font-size: 20px; }
+  section { border: 1px solid #ddd; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; }
+  h2 { font-size: 15px; margin: 0 0 8px; }
+  button { padding: 6px 12px; margin-right: 6px; cursor: pointer; }
+  button:disabled { cursor: not-allowed; opacity: 0.5; }
+  input[type="text"], input[type="number"] { padding: 4px 6px; }
+  input[type="number"] { width: 100px; }
+  video { max-width: 100%; border-radius: 6px; background: #000; }
+  .row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+  #status { font-weight: bold; }
+  .ok { color: #1a7f37; }
+  .bad { color: #c0392b; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { border: 1px solid #ddd; padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: #f5f5f5; }
+  tr.playing { background: #fff6d6; }
+  tr.played { color: #999; }
+  #log { background: #111; color: #cfe; font-family: ui-monospace, monospace; font-size: 12px;
+         height: 220px; overflow-y: auto; padding: 8px; border-radius: 6px; white-space: pre-wrap; }
+  .hint { font-size: 12px; color: #666; }
+</style>
+</head>
+<body>
+<h1>들리는 화면 — /v1 API 테스트</h1>
+<p class="hint">
+  구형 <code>/session/*</code> 실시간 캡처 API는 기본적으로 꺼져 있고(<code>VOICE_BRIDGE_ENABLE_LEGACY_SESSION_API</code>),
+  최종 구조의 기본 경로가 아니다. 이 페이지는 실제로 서비스하는 <code>/v1/health</code>, <code>/v1/jobs</code>,
+  <code>/v1/manifests</code>, <code>/v1/audio</code> 를 확인하고, 로컬 영상 파일로 익스텐션의 M6-FE(재생 동기화 ·
+  더킹)를 간단히 흉내 내 본다. 사전 처리 자체는 <code>pipeline/build_manifest.py</code> CLI로 먼저 실행해 둬야 한다.
+</p>
+
+<section>
+  <h2>0. 백엔드 상태</h2>
+  <div class="row">
+    <button id="btnHealth">상태 확인</button>
+    <span id="status">-</span>
+  </div>
+</section>
+
+<section>
+  <h2>0.5 URL로 자동 등록 + 처리 (dev 전용, /v1 아님)</h2>
+  <p class="hint">
+    유튜브 URL이나 video_id를 붙여넣으면 <code>/dev/process</code>가 실제로 다운로드하고, catalog에 등록하고,
+    M1~M5 파이프라인을 그대로 실행한다. 다운로드·STT·OCR/서술·TTS를 다 거치므로 <b>실제 시간이 걸리고 과금 API를
+    호출한다</b>. 이 엔드포인트는 127.0.0.1 로컬 개발용이며 <code>VOICE_BRIDGE_ENABLE_DEV_PIPELINE_API=false</code>
+    로 끌 수 있다. 성공하면 아래 1·2번 입력칸에 자동으로 채워진다.
+  </p>
+  <div class="row">
+    <input type="text" id="youtubeUrl" placeholder="https://www.youtube.com/watch?v=... 또는 video_id" style="flex: 1; min-width: 260px;">
+    <button id="btnDevProcess">등록 + 처리 실행</button>
+  </div>
+  <div class="row"><span id="devProcessStatus" class="hint">-</span></div>
+</section>
+
+<section>
+  <h2>1. 작업(job) 요청 · 상태 확인</h2>
+  <div class="row">
+    <label>provider <input type="text" id="provider" value="youtube"></label>
+    <label>video_id <input type="text" id="videoId" value="abc123"></label>
+    <label>duration_ms <input type="number" id="durationMs" value="512400"></label>
+  </div>
+  <div class="row">
+    <button id="btnJobCreate">작업 요청 (POST /v1/jobs)</button>
+    <button id="btnJobStop" disabled>자동 재조회 중지</button>
+    <span>상태: <code id="jobStatus">-</code></span>
+  </div>
+</section>
+
+<section>
+  <h2>2. Manifest 조회</h2>
+  <div class="row">
+    <button id="btnManifest">manifest 조회 (GET /v1/manifests/{provider}/{video_id})</button>
+    <span id="manifestSummary">-</span>
+  </div>
+  <div style="max-height: 260px; overflow-y: auto;">
+    <table id="segmentTable">
+      <thead>
+        <tr><th>id</th><th>start_ms</th><th>end_ms</th><th>text</th><th>source</th><th>confidence</th><th>재생</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>3. 재생 시뮬레이션 (M6-FE 간이 구현)</h2>
+  <p class="hint">
+    위에서 조회한 manifest와 같은 영상(같은 provider/video_id, 비슷한 길이)의 로컬 파일을 선택해야 시간이 맞는다.
+    실제 익스텐션의 Scheduler/Ducking Controller를 단순화해 <code>timeupdate</code> 기준으로만 구현했다 —
+    preload·lookahead 예약은 하지 않고, 세그먼트 구간에 들어서면 그 자리에서 바로 재생한다.
+  </p>
+  <div class="row">
+    <input type="file" id="videoFile" accept="video/*">
+    <span class="hint">duck_factor: <span id="duckFactorLabel">-</span> · late_tolerance_ms: <span id="lateToleranceLabel">-</span></span>
+  </div>
+  <video id="srcVideo" controls></video>
+</section>
+
+<section>
+  <h2>로그</h2>
+  <div id="log"></div>
+</section>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const logEl = $("log");
+
+function log(label, data) {
+  const time = new Date().toLocaleTimeString();
+  const body = data === undefined ? "" : (typeof data === "string" ? data : JSON.stringify(data));
+  logEl.textContent += `[${time}] ${label} ${body}\n`;
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+async function api(path, options) {
+  const res = await fetch(path, options);
+  let data;
+  try { data = await res.json(); } catch (e) { data = null; }
+  log(`${options?.method || "GET"} ${path} -> ${res.status}`, data);
+  return { ok: res.ok, status: res.status, data };
+}
+
+// ---- 0. 상태 ----
+$("btnHealth").onclick = async () => {
+  const { ok, data } = await api("/v1/health");
+  $("status").textContent = ok ? `정상 (catalog ${data.catalog_videos}개, manifest ${data.manifest_files}개)` : `오류: ${data?.error?.message || "연결 실패"}`;
+  $("status").className = ok ? "ok" : "bad";
+};
+
+// ---- 0.5 URL로 등록 + 처리 ----
+function extractYouTubeVideoId(input) {
+  const trimmed = input.trim();
+  if (/^[A-Za-z0-9_-]{6,20}$/.test(trimmed)) return trimmed;  // 이미 bare video_id
+  try {
+    const url = new URL(trimmed);
+    if (url.hostname === "youtu.be") return url.pathname.slice(1) || null;
+    if (url.hostname.endsWith("youtube.com")) {
+      if (url.searchParams.get("v")) return url.searchParams.get("v");
+      const m = url.pathname.match(/\/(?:embed|shorts)\/([A-Za-z0-9_-]+)/);
+      if (m) return m[1];
+    }
+  } catch (e) { /* URL이 아니면 아래에서 null 반환 */ }
+  return null;
+}
+
+$("btnDevProcess").onclick = async () => {
+  const raw = $("youtubeUrl").value;
+  const videoId = extractYouTubeVideoId(raw);
+  if (!videoId) { $("devProcessStatus").textContent = "URL 또는 video_id를 알아볼 수 없습니다"; return; }
+
+  $("btnDevProcess").disabled = true;
+  $("devProcessStatus").textContent = `처리 중... (${videoId}) 다운로드~TTS까지 몇 분 걸릴 수 있습니다`;
+  const { ok, data } = await api("/dev/process", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ provider: "youtube", video_id: videoId }),
+  });
+  $("btnDevProcess").disabled = false;
+
+  if (!ok) {
+    $("devProcessStatus").textContent = `실패: ${data?.error?.message || "알 수 없는 오류"}`;
+    return;
+  }
+  $("devProcessStatus").textContent =
+    `완료: ${data.manifest_id} (gap ${data.gaps_total}개 중 ${data.segments_published}개 게시, ${data.segments_skipped}개 skip)`;
+  $("provider").value = "youtube";
+  $("videoId").value = videoId;
+  $("durationMs").value = data.duration_ms;
+};
+
+// ---- 1. job ----
+let jobPollTimer = null;
+
+function stopJobPolling() {
+  if (jobPollTimer) clearTimeout(jobPollTimer);
+  jobPollTimer = null;
+  $("btnJobStop").disabled = true;
+}
+
+function pollJob(jobId) {
+  $("btnJobStop").disabled = false;
+  const tick = async () => {
+    const { ok, data } = await api(`/v1/jobs/${jobId}`);
+    if (!ok) { $("jobStatus").textContent = `조회 실패: ${data?.error?.message}`; stopJobPolling(); return; }
+    $("jobStatus").textContent = data.status;
+    if (data.status === "queued" || data.status === "processing") {
+      jobPollTimer = setTimeout(tick, data.retry_after_ms || 1500);
+    } else {
+      stopJobPolling();
+      if (data.status === "ready") log("job ready", "manifest 조회 버튼을 눌러 확인하세요");
+      if (data.status === "failed") log("job failed", data.error);
+    }
+  };
+  tick();
+}
+
+$("btnJobCreate").onclick = async () => {
+  stopJobPolling();
+  const body = {
+    provider: $("provider").value.trim(),
+    video_id: $("videoId").value.trim(),
+    duration_ms: Number($("durationMs").value),
+  };
+  const { ok, data } = await api("/v1/jobs", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!ok) { $("jobStatus").textContent = `요청 실패: ${data?.error?.message}`; return; }
+  $("jobStatus").textContent = data.status;
+  pollJob(data.job_id);
+};
+$("btnJobStop").onclick = stopJobPolling;
+
+// ---- 2. manifest ----
+let currentManifest = null;
+
+function renderSegments(manifest) {
+  const tbody = $("segmentTable").querySelector("tbody");
+  tbody.innerHTML = "";
+  for (const seg of manifest.segments) {
+    const tr = document.createElement("tr");
+    tr.id = `seg-row-${seg.id}`;
+    tr.innerHTML = `
+      <td>${seg.id}</td>
+      <td>${seg.start_ms}</td>
+      <td>${seg.end_ms}</td>
+      <td>${seg.text}</td>
+      <td>${seg.source}</td>
+      <td>${seg.confidence}</td>
+      <td><audio controls preload="none" src="${seg.audio.path}"></audio></td>
+    `;
+    tbody.appendChild(tr);
+  }
+}
+
+$("btnManifest").onclick = async () => {
+  const provider = $("provider").value.trim();
+  const videoId = $("videoId").value.trim();
+  const { ok, status, data } = await api(`/v1/manifests/${provider}/${videoId}`);
+  if (status === 202) {
+    $("manifestSummary").textContent = `처리 중 (job_id ${data.job_id}, ${data.retry_after_ms}ms 후 재시도)`;
+    return;
+  }
+  if (!ok) {
+    $("manifestSummary").textContent = `오류: ${data?.error?.message || status}`;
+    return;
+  }
+  currentManifest = data;
+  $("manifestSummary").textContent = `${data.manifest_id} · 세그먼트 ${data.segments.length}개`;
+  $("duckFactorLabel").textContent = data.playback.duck_factor;
+  $("lateToleranceLabel").textContent = data.playback.late_tolerance_ms;
+  renderSegments(data);
+  resetPlaybackState();
+};
+
+// ---- 3. 재생 시뮬레이션 ----
+const videoEl = $("srcVideo");
+const narrationAudio = new Audio();
+let playedSegmentIds = new Set();
+let duckedVolume = null;
+
+function resetPlaybackState() {
+  playedSegmentIds = new Set();
+  document.querySelectorAll("#segmentTable tr").forEach((tr) => tr.classList.remove("playing", "played"));
+}
+
+function restoreVolume() {
+  if (duckedVolume !== null) {
+    videoEl.volume = duckedVolume;
+    duckedVolume = null;
+  }
+}
+
+function playSegment(seg) {
+  const row = $(`seg-row-${seg.id}`);
+  if (row) row.classList.add("playing");
+  duckedVolume = videoEl.volume;
+  videoEl.volume = videoEl.volume * currentManifest.playback.duck_factor;
+  narrationAudio.src = seg.audio.path;
+  narrationAudio.play().catch((e) => log(`재생 실패 ${seg.id}`, String(e)));
+  log(`재생 ${seg.id}`, `[${seg.start_ms}~${seg.end_ms}ms] ${seg.text}`);
+  const finish = () => {
+    restoreVolume();
+    if (row) { row.classList.remove("playing"); row.classList.add("played"); }
+  };
+  narrationAudio.onended = finish;
+  narrationAudio.onerror = finish;
+}
+
+$("videoFile").onchange = () => {
+  const file = $("videoFile").files[0];
+  if (!file) return;
+  videoEl.src = URL.createObjectURL(file);
+  resetPlaybackState();
+};
+
+videoEl.addEventListener("timeupdate", () => {
+  if (!currentManifest) return;
+  const nowMs = videoEl.currentTime * 1000;
+  const lateToleranceMs = currentManifest.playback.late_tolerance_ms;
+
+  for (const seg of currentManifest.segments) {
+    if (playedSegmentIds.has(seg.id)) continue;
+    if (nowMs < seg.start_ms) continue;
+
+    playedSegmentIds.add(seg.id);
+    const lateBy = nowMs - seg.start_ms;
+    if (nowMs > seg.end_ms || lateBy > lateToleranceMs) {
+      log(`skip(늦음) ${seg.id}`, `${Math.round(lateBy)}ms 늦음`);
+      const row = $(`seg-row-${seg.id}`);
+      if (row) row.classList.add("played");
+      continue;
+    }
+    playSegment(seg);
+  }
+});
+
+videoEl.addEventListener("seeking", () => {
+  narrationAudio.pause();
+  restoreVolume();
+  const nowMs = videoEl.currentTime * 1000;
+  if (!currentManifest) return;
+  // 지난 세그먼트(재생 지점 이전에 끝난 것)는 다시 재생하지 않는다. 앞으로 남은
+  // 세그먼트는 다시 후보로 돌려 seek 후에도 정상 재생되게 한다.
+  playedSegmentIds = new Set(
+    currentManifest.segments.filter((s) => s.end_ms <= nowMs).map((s) => s.id)
+  );
+  document.querySelectorAll("#segmentTable tr").forEach((tr) => tr.classList.remove("playing"));
+});
+
+videoEl.addEventListener("pause", () => {
+  narrationAudio.pause();
+});
+
+videoEl.addEventListener("play", () => {
+  if (narrationAudio.src && !narrationAudio.ended) narrationAudio.play().catch(() => {});
+});
+</script>
+</body>
+</html>

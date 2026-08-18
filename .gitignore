@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+*.log
+
+# Chrome extension packaging output
+*.crx
+*.pem
+
+# Pipeline run artifacts (original audio/frames — never publish these)
+dev/sound/backend/runs/
