@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "manifest_id": "youtube:abc123:r1",
+  "revision": 1,
+  "video": {
+    "provider": "youtube",
+    "video_id": "abc123",
+    "duration_ms": 512400
+  },
+  "voice": {
+    "voice_id": "ko-KR-poc",
+    "format": "audio/wav",
+    "sample_rate_hz": 24000
+  },
+  "playback": {
+    "duck_factor": 0.35,
+    "preload_count": 3,
+    "lookahead_ms": 500,
+    "late_tolerance_ms": 250
+  },
+  "segments": [
+    {
+      "id": "seg-001",
+      "start_ms": 12400,
+      "end_ms": 16200,
+      "text": "화면에 표, 3분기 매출 3억",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/0000000000000000000000000000000000000000000000000000000000000000.wav",
+        "duration_ms": 3110,
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ]
+}
+

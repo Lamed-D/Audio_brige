@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "minimum_chrome_version": "114",
+  "name": "들리는 화면",
+  "version": "1.0.0",
+  "description": "YouTube 영상용 화면해설 매니페스트를 불러와 재생 시점에 맞춰 음성으로 제공합니다.",
+  "permissions": ["offscreen", "storage", "sidePanel", "activeTab"],
+  "host_permissions": ["http://127.0.0.1:5000/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "들리는 화면 열기"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*",
+        "https://youtube.com/*",
+        "https://youtu.be/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

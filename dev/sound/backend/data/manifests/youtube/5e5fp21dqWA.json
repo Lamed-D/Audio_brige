@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0",
+  "manifest_id": "youtube:5e5fp21dqWA:r1",
+  "revision": 1,
+  "video": {
+    "provider": "youtube",
+    "video_id": "5e5fp21dqWA",
+    "duration_ms": 319158
+  },
+  "voice": {
+    "voice_id": "ko-KR-poc",
+    "format": "audio/wav",
+    "sample_rate_hz": 24000
+  },
+  "playback": {
+    "duck_factor": 0.35,
+    "preload_count": 3,
+    "lookahead_ms": 500,
+    "late_tolerance_ms": 250
+  },
+  "segments": [
+    {
+      "id": "seg-001",
+      "start_ms": 1460,
+      "end_ms": 2720,
+      "text": "달갈만 보면",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/e42833fce8132985d4acc57bcbd423a9b6b4914f600abb288767f8f69a8b6613.wav",
+        "duration_ms": 850,
+        "sha256": "e42833fce8132985d4acc57bcbd423a9b6b4914f600abb288767f8f69a8b6613"
+      }
+    },
+    {
+      "id": "seg-002",
+      "start_ms": 10420,
+      "end_ms": 15920,
+      "text": "매콤달걀덮밥",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/65378f15a27dca3525ec0cb4a22b37e7a72af17893b4c1998df9aedc23e574f5.wav",
+        "duration_ms": 1012,
+        "sha256": "65378f15a27dca3525ec0cb4a22b37e7a72af17893b4c1998df9aedc23e574f5"
+      }
+    },
+    {
+      "id": "seg-003",
+      "start_ms": 104300,
+      "end_ms": 107380,
+      "text": "달걀을 깨고 있다.",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/29e7aee1c0d4ec0f70780fc678f5fb4c1866c9d02ee3ec55d5300a2d90f79afb.wav",
+        "duration_ms": 1312,
+        "sha256": "29e7aee1c0d4ec0f70780fc678f5fb4c1866c9d02ee3ec55d5300a2d90f79afb"
+      }
+    },
+    {
+      "id": "seg-004",
+      "start_ms": 110580,
+      "end_ms": 115260,
+      "text": "식용유 2큰술",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/a1c14709dc61fe82a9ceab11c8fb46d1a89ca0dbd5a8672494e3025c92e3df09.wav",
+        "duration_ms": 1112,
+        "sha256": "a1c14709dc61fe82a9ceab11c8fb46d1a89ca0dbd5a8672494e3025c92e3df09"
+      }
+    },
+    {
+      "id": "seg-005",
+      "start_ms": 134720,
+      "end_ms": 147660,
+      "text": "팬에 세 개의 달걀을 깨뜨려 넣고 익히고 있다.",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/21a1da2bdf97e4115c7dcb646d669b06869f7501b413ea15544298da49dc21e1.wav",
+        "duration_ms": 3250,
+        "sha256": "21a1da2bdf97e4115c7dcb646d669b06869f7501b413ea15544298da49dc21e1"
+      }
+    },
+    {
+      "id": "seg-006",
+      "start_ms": 156420,
+      "end_ms": 158400,
+      "text": "(노른자 터지면 유죄)",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/631524a32bdea0dc4ba57d049e87143f2ce1cf507fb790f29878c9cf22353c0a.wav",
+        "duration_ms": 1438,
+        "sha256": "631524a32bdea0dc4ba57d049e87143f2ce1cf507fb790f29878c9cf22353c0a"
+      }
+    },
+    {
+      "id": "seg-007",
+      "start_ms": 169860,
+      "end_ms": 172400,
+      "text": "{\"text\":\"\"}",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/6d25dba89abf4ec2dde933c53a0d79519cdae5db8abd06f2ca7920732c18d244.wav",
+        "duration_ms": 638,
+        "sha256": "6d25dba89abf4ec2dde933c53a0d79519cdae5db8abd06f2ca7920732c18d244"
+      }
+    },
+    {
+      "id": "seg-008",
+      "start_ms": 176860,
+      "end_ms": 183200,
+      "text": "우선 혼자만!",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/1a6a7d40c529569f75920b74eebecec7083807d15fc3c2857c71759ed348a815.wav",
+        "duration_ms": 925,
+        "sha256": "1a6a7d40c529569f75920b74eebecec7083807d15fc3c2857c71759ed348a815"
+      }
+    },
+    {
+      "id": "seg-009",
+      "start_ms": 217460,
+      "end_ms": 222080,
+      "text": "골고루 볶아주세요",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/58f03879ca35785add0447b89ce55c1474cc1a595f52a7c4a25df1e37da4fa36.wav",
+        "duration_ms": 1350,
+        "sha256": "58f03879ca35785add0447b89ce55c1474cc1a595f52a7c4a25df1e37da4fa36"
+      }
+    },
+    {
+      "id": "seg-010",
+      "start_ms": 250120,
+      "end_ms": 254660,
+      "text": "드디어 완성",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/c9cba37af9c32295c7cc42ec11b2a085f2cda11d4ec14ae0990b2a51202901eb.wav",
+        "duration_ms": 825,
+        "sha256": "c9cba37af9c32295c7cc42ec11b2a085f2cda11d4ec14ae0990b2a51202901eb"
+      }
+    },
+    {
+      "id": "seg-011",
+      "start_ms": 266120,
+      "end_ms": 275980,
+      "text": "백종원의 요리비책",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/830ad5ac2e7ae857babaa231886dce983ebacdc14e4d1ae85c61348d3201d37e.wav",
+        "duration_ms": 1400,
+        "sha256": "830ad5ac2e7ae857babaa231886dce983ebacdc14e4d1ae85c61348d3201d37e"
+      }
+    },
+    {
+      "id": "seg-012",
+      "start_ms": 294290,
+      "end_ms": 300860,
+      "text": "요리사가 양념장을 맛보고 있다.",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/f6279a42ca4781d144521340f11317b852e0cfd90dcffc322d3ebc61f938bcc8.wav",
+        "duration_ms": 2438,
+        "sha256": "f6279a42ca4781d144521340f11317b852e0cfd90dcffc322d3ebc61f938bcc8"
+      }
+    },
+    {
+      "id": "seg-013",
+      "start_ms": 306940,
+      "end_ms": 317420,
+      "text": "인물이 음식을 먹으며 맛있게 드세요라고 말한다.",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/e661636718193106405563cee7e2d4b79ffaaf8cfce6b525b98fda7c4a771f5e.wav",
+        "duration_ms": 3425,
+        "sha256": "e661636718193106405563cee7e2d4b79ffaaf8cfce6b525b98fda7c4a771f5e"
+      }
+    }
+  ]
+}
