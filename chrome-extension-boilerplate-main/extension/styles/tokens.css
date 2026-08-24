@@ -1,0 +1,15 @@
+:root {
+  --color-canvas: #f7f8fa;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+  --color-text-muted: #475569;
+  --color-primary: #075985;
+  --color-primary-hover: #0c4a6e;
+  --color-accent: #f2c14e;
+  --color-border: #cbd5e1;
+  --color-success: #13795b;
+  --color-danger: #b42318;
+  --color-focus: #005fcc;
+  --color-on-primary: #ffffff;
+  --color-on-accent: #111827;
+}

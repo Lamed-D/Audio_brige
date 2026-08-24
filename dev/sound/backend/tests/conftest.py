@@ -25,7 +25,7 @@ def write_catalog(root: Path, videos: list[dict] | None = None) -> None:
     root.mkdir(parents=True, exist_ok=True)
     (root / "catalog.json").write_text(
         json.dumps(
-            {"schema_version": "1.0", "videos": videos or [DEMO_VIDEO]},
+            {"schema_version": "1.1", "videos": videos or [DEMO_VIDEO]},
             ensure_ascii=False,
             indent=2,
         )
@@ -53,7 +53,7 @@ def publish_demo_manifest(
     clip_hash = hashlib.sha256(wav_bytes).hexdigest()
     (repository.audio_dir / f"{clip_hash}.wav").write_bytes(wav_bytes)
     manifest = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "manifest_id": f"youtube:abc123:r{revision}",
         "revision": revision,
         "video": {
@@ -71,13 +71,18 @@ def publish_demo_manifest(
             "preload_count": 3,
             "lookahead_ms": 500,
             "late_tolerance_ms": 250,
+            "auto_pause_default": True,
+            "max_extended_duration_ms": 8_000,
+            "min_extended_interval_ms": 15_000,
         },
         "segments": [
             {
                 "id": "seg-001",
-                "start_ms": 1_000,
-                "end_ms": 1_500,
+                "mode": "overlay",
+                "trigger_ms": 1_000,
+                "deadline_ms": 1_500,
                 "text": "화면에 표가 나타난다",
+                "importance": "normal",
                 "source": "vlm",
                 "confidence": "high",
                 "audio": {

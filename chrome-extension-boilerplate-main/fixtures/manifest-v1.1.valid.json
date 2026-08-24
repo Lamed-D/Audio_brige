@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.1",
+  "manifest_id": "youtube:dQw4w9WgXcQ:r1",
+  "revision": 1,
+  "video": {
+    "provider": "youtube",
+    "video_id": "dQw4w9WgXcQ",
+    "duration_ms": 213061
+  },
+  "voice": {
+    "voice_id": "ko-KR-poc",
+    "format": "audio/wav",
+    "sample_rate_hz": 24000
+  },
+  "playback": {
+    "duck_factor": 0.35,
+    "preload_count": 3,
+    "lookahead_ms": 500,
+    "late_tolerance_ms": 250,
+    "auto_pause_default": true,
+    "max_extended_duration_ms": 8000,
+    "min_extended_interval_ms": 15000
+  },
+  "segments": [
+    {
+      "id": "seg-001",
+      "mode": "overlay",
+      "trigger_ms": 12400,
+      "deadline_ms": 16200,
+      "text": "화면에 표, 3분기 매출 3억",
+      "importance": "normal",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/89cc07fa802c26cdb0c4b6911e2de88fc49cfc34df99ba22330d62af7eb1b476.wav",
+        "duration_ms": 3300,
+        "sha256": "89cc07fa802c26cdb0c4b6911e2de88fc49cfc34df99ba22330d62af7eb1b476"
+      }
+    },
+    {
+      "id": "seg-002",
+      "mode": "extended",
+      "trigger_ms": 32800,
+      "text": "강사가 표의 붉은 막대를 가리킨다",
+      "importance": "high",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/5c25d73681ae4243e60ef75f977029bcfaa785ff4715915f03c8dc2b9c5b910e.wav",
+        "duration_ms": 3196,
+        "sha256": "5c25d73681ae4243e60ef75f977029bcfaa785ff4715915f03c8dc2b9c5b910e"
+      }
+    }
+  ]
+}

@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 import re
 import uuid
-from typing import Any, Mapping
+from typing import Any, Mapping, Optional
 
 from flask import (
     Blueprint,
@@ -16,7 +16,6 @@ from flask import (
     jsonify,
     request,
     send_file,
-    url_for,
 )
 from werkzeug.exceptions import HTTPException
 
@@ -75,29 +74,54 @@ def error_response(
     )
 
 
-def _public_job(job: Mapping[str, Any]) -> dict[str, Any]:
-    result: dict[str, Any] = {
+def _public_job(
+    job: Mapping[str, Any], *, manifest: Optional[Mapping[str, Any]] = None
+) -> dict[str, Any]:
+    """연동규격 v1.2 JobStatus 계약(contracts/job-status-v1.2.schema.json)을 그대로
+    따른다 — 상태별로 정확히 그 필드만 내보낸다. FE의 실제 파서(isBackendJobStatus)는
+    여분 필드를 허용하지만, JSON Schema 쪽은 additionalProperties:false라 여분
+    필드가 하나라도 섞이면 "정상 응답"으로 보지 않는다(BACKEND_INTEGRATION.md 규칙 10).
+    """
+    status = job["status"]
+    video_key = f"{job['provider']}:{job['video_id']}"
+
+    if status == "ready":
+        return {
+            "status": "ready",
+            "job_id": job["job_id"],
+            "video_key": video_key,
+            "progress_percent": 100,
+            "manifest_id": manifest["manifest_id"] if manifest else job.get("manifest_id"),
+            "revision": manifest["revision"] if manifest else job.get("revision"),
+            "updated_at": job["updated_at"],
+        }
+
+    if status == "failed":
+        error = job.get("error") if isinstance(job.get("error"), Mapping) else {}
+        return {
+            "status": "failed",
+            "job_id": job["job_id"],
+            "video_key": video_key,
+            "progress_percent": job.get("progress_percent") or 0,
+            "error": {
+                "code": error.get("code", "UNKNOWN"),
+                "retryable": bool(error.get("retryable", False)),
+            },
+            "updated_at": job["updated_at"],
+        }
+
+    # queued | processing
+    return {
+        "status": status,
         "job_id": job["job_id"],
-        "status": job["status"],
-        "video": {
-            "provider": job["provider"],
-            "video_id": job["video_id"],
-            "duration_ms": job["duration_ms"],
-        },
-        "created_at": job["created_at"],
+        "video_key": video_key,
+        "stage": job.get("stage") or "queued",
+        "progress_percent": job.get("progress_percent") or 0,
+        "eta_seconds": job.get("eta_seconds"),
+        "eta_confidence": job.get("eta_confidence"),
+        "retry_after_ms": config.JOB_RETRY_AFTER_MS,
         "updated_at": job["updated_at"],
     }
-    if job["status"] in ACTIVE_JOB_STATUSES:
-        result["retry_after_ms"] = config.JOB_RETRY_AFTER_MS
-    if job["status"] == "ready":
-        result["manifest_path"] = url_for(
-            "api_v1.manifest_get",
-            provider=job["provider"],
-            video_id=job["video_id"],
-        )
-    if job["status"] == "failed" and isinstance(job.get("error"), Mapping):
-        result["error"] = dict(job["error"])
-    return result
 
 
 @bp.get("/health")
@@ -147,16 +171,8 @@ def manifest_get(provider: str, video_id: str):
         return error_response("JOB_STORE_ERROR", str(exc), 500, retryable=True)
 
     if job is not None and job["status"] in ACTIVE_JOB_STATUSES:
-        return (
-            jsonify(
-                {
-                    "job_id": job["job_id"],
-                    "status": job["status"],
-                    "retry_after_ms": config.JOB_RETRY_AFTER_MS,
-                }
-            ),
-            202,
-        )
+        # 연동규격 6.2: 202 응답도 job/status 조회와 동일한 JobStatus 본문 규격을 쓴다.
+        return jsonify(_public_job(job)), 202
     if job is not None and job["status"] == "ready":
         # A manifest may have been atomically published while this request was
         # refreshing the job. Re-read once to avoid a spurious 404.
@@ -216,11 +232,22 @@ def job_create():
         )
 
     try:
-        job = _repo().create_or_get_job(video)
+        job, outcome = _repo().create_or_get_job(video)
     except ManifestInvalid as exc:
         return error_response("MANIFEST_INVALID", str(exc), 500)
     except (JobInvalid, StorageError) as exc:
         return error_response("JOB_STORE_ERROR", str(exc), 500, retryable=True)
+
+    # 연동규격 6.2: 신규 생성 202, 즉시 준비/기존 결과 200, 동일 작업이 이미
+    # 진행 중이면 409 — 모두 같은 JobStatus 본문 규격으로 반환한다.
+    if outcome == "active":
+        return jsonify(_public_job(job)), 409
+    if outcome == "ready":
+        try:
+            record = _repo().find_manifest(provider, video_id, video)
+        except ManifestInvalid as exc:
+            return error_response("MANIFEST_INVALID", str(exc), 500)
+        return jsonify(_public_job(job, manifest=record.data if record else None)), 200
     return jsonify(_public_job(job)), 202
 
 
@@ -234,7 +261,14 @@ def job_get(job_id: str):
         return error_response("JOB_STORE_ERROR", str(exc), 500, retryable=True)
     if job is None:
         return error_response("JOB_NOT_FOUND", "작업을 찾을 수 없습니다", 404)
-    return jsonify(_public_job(job))
+    manifest = None
+    if job["status"] == "ready":
+        try:
+            record = _repo().find_manifest(job["provider"], job["video_id"])
+        except ManifestInvalid:
+            record = None
+        manifest = record.data if record else None
+    return jsonify(_public_job(job, manifest=manifest))
 
 
 @bp.get("/audio/<clip_hash>.wav")

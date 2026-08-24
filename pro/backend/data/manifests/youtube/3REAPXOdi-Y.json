@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.1",
+  "manifest_id": "youtube:3REAPXOdi-Y:r1",
+  "revision": 1,
+  "video": {
+    "provider": "youtube",
+    "video_id": "3REAPXOdi-Y",
+    "duration_ms": 362974
+  },
+  "voice": {
+    "voice_id": "ko-KR-poc",
+    "format": "audio/wav",
+    "sample_rate_hz": 24000
+  },
+  "playback": {
+    "duck_factor": 0.35,
+    "preload_count": 3,
+    "lookahead_ms": 500,
+    "late_tolerance_ms": 250,
+    "auto_pause_default": true,
+    "max_extended_duration_ms": 8000,
+    "min_extended_interval_ms": 15000
+  },
+  "segments": [
+    {
+      "id": "seg-001",
+      "mode": "overlay",
+      "trigger_ms": 28220,
+      "text": "천상현이 고개 숙여 조리하고, 뒤편 검은 셰프는 재료를 섞는다.",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/4c6e7ea2c9da763ade555f2fd3db4292a907a0df9a5d16bf3d4fa0042d0330fc.wav",
+        "duration_ms": 4750,
+        "sha256": "4c6e7ea2c9da763ade555f2fd3db4292a907a0df9a5d16bf3d4fa0042d0330fc"
+      },
+      "deadline_ms": 33740
+    },
+    {
+      "id": "seg-002",
+      "mode": "overlay",
+      "trigger_ms": 37980,
+      "text": "반찬을 시식한다",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/8fa6b4d8ee3fc0a9b4a1909d859c6555f5f61d6728e01dfe6857b193c34bb408.wav",
+        "duration_ms": 1162,
+        "sha256": "8fa6b4d8ee3fc0a9b4a1909d859c6555f5f61d6728e01dfe6857b193c34bb408"
+      },
+      "deadline_ms": 40840
+    },
+    {
+      "id": "seg-003",
+      "mode": "overlay",
+      "trigger_ms": 70080,
+      "text": "박대를 썬다",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/8099883c599473ca5322713f7a41087a87e4a69c8bf3736072cd7b05c5bce0ff.wav",
+        "duration_ms": 875,
+        "sha256": "8099883c599473ca5322713f7a41087a87e4a69c8bf3736072cd7b05c5bce0ff"
+      },
+      "deadline_ms": 72040
+    },
+    {
+      "id": "seg-004",
+      "mode": "overlay",
+      "trigger_ms": 191980,
+      "text": "끼얹는다",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/ad770c6ebb0152f4a44387321e5c6788f6c57fbd47c567faa1397c8365924a08.wav",
+        "duration_ms": 675,
+        "sha256": "ad770c6ebb0152f4a44387321e5c6788f6c57fbd47c567faa1397c8365924a08"
+      },
+      "deadline_ms": 193140
+    },
+    {
+      "id": "seg-005",
+      "mode": "overlay",
+      "trigger_ms": 200360,
+      "text": "박대조림이 완성된다",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/cc7aacf73d330845a2c97e5c977239d282a147fae80916d66da0f00b7f558a59.wav",
+        "duration_ms": 1575,
+        "sha256": "cc7aacf73d330845a2c97e5c977239d282a147fae80916d66da0f00b7f558a59"
+      },
+      "deadline_ms": 204120
+    },
+    {
+      "id": "seg-006",
+      "mode": "overlay",
+      "trigger_ms": 242480,
+      "text": "곱씹는다",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/cc5463aa5acb039841fc8134ba6725aaf90ec62256cd1332a7fb6daafb5e38a4.wav",
+        "duration_ms": 650,
+        "sha256": "cc5463aa5acb039841fc8134ba6725aaf90ec62256cd1332a7fb6daafb5e38a4"
+      },
+      "deadline_ms": 244140
+    },
+    {
+      "id": "seg-007",
+      "mode": "overlay",
+      "trigger_ms": 245080,
+      "text": "둘은 말없이 지켜본다",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/ec2dc1cddd159590c3559a02c3a28ba33dbb586b103e54cc51fa9c60064e07c5.wav",
+        "duration_ms": 1512,
+        "sha256": "ec2dc1cddd159590c3559a02c3a28ba33dbb586b103e54cc51fa9c60064e07c5"
+      },
+      "deadline_ms": 248980
+    },
+    {
+      "id": "seg-008",
+      "mode": "overlay",
+      "trigger_ms": 318320,
+      "text": "천상현이 고개 숙여 인사한 뒤 반찬술사와 포옹한다.",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/948a1a594cf00fc0bbf06d75d52a65dac7d049800e1faeaff3ea49e52d96c56a.wav",
+        "duration_ms": 3988,
+        "sha256": "948a1a594cf00fc0bbf06d75d52a65dac7d049800e1faeaff3ea49e52d96c56a"
+      },
+      "deadline_ms": 325060
+    },
+    {
+      "id": "seg-009",
+      "mode": "overlay",
+      "trigger_ms": 341680,
+      "text": "반찬술사가 복도를 걸어 나가고, 선반에는 그의 명패만 남는다.",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/0e4f1624f6364a9f26ff5e43e7bdaf457914d50cf39edb879b8c89bb03d121f3.wav",
+        "duration_ms": 4675,
+        "sha256": "0e4f1624f6364a9f26ff5e43e7bdaf457914d50cf39edb879b8c89bb03d121f3"
+      },
+      "deadline_ms": 361280
+    }
+  ]
+}

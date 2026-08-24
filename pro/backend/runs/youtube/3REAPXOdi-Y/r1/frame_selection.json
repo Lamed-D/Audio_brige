@@ -1,0 +1,1875 @@
+[
+  {
+    "gap_index": 0,
+    "captured_count": 17,
+    "selected_count": 17,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_before_t000025220_00000.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_before_t000026720_00001.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000028220_00002.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000028720_00003.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000029220_00004.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000029720_00005.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000030220_00006.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000030720_00007.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000031220_00008.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000031720_00009.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000032220_00010.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000032720_00011.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000033220_00012.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000033480_00013.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000033740_00014.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_after_t000035240_00015.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_after_t000036740_00016.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_before_t000025220_00000.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_before_t000026720_00001.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_before_t000025220_00000.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000028220_00002.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000028720_00003.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000028220_00002.jpg",
+        "similarity": 0.84375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000029220_00004.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000028720_00003.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000029720_00005.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000028220_00002.jpg",
+        "similarity": 0.578125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000030220_00006.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000029720_00005.jpg",
+        "similarity": 0.953125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000030720_00007.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000030220_00006.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000031220_00008.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000029720_00005.jpg",
+        "similarity": 0.8125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000031720_00009.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000031220_00008.jpg",
+        "similarity": 0.84375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000032220_00010.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000031720_00009.jpg",
+        "similarity": 0.71875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000032720_00011.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000032220_00010.jpg",
+        "similarity": 0.859375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000033220_00012.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000032720_00011.jpg",
+        "similarity": 0.84375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000033480_00013.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000033220_00012.jpg",
+        "similarity": 0.8125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000033740_00014.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_gap_t000033480_00013.jpg",
+        "similarity": 0.796875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_after_t000035240_00015.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_after_t000036740_00016.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_000_after_t000035240_00015.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 1,
+    "captured_count": 11,
+    "selected_count": 11,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_before_t000034980_00017.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_before_t000036480_00018.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000037980_00019.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000038480_00020.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000038980_00021.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000039480_00022.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000039980_00023.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000040410_00024.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000040840_00025.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_after_t000042340_00026.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_after_t000043840_00027.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_before_t000034980_00017.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_before_t000036480_00018.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_before_t000034980_00017.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000037980_00019.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000038480_00020.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000037980_00019.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000038980_00021.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000037980_00019.jpg",
+        "similarity": 0.953125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000039480_00022.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000038480_00020.jpg",
+        "similarity": 0.9375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000039980_00023.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000038480_00020.jpg",
+        "similarity": 0.953125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000040410_00024.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000038980_00021.jpg",
+        "similarity": 0.90625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000040840_00025.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_gap_t000040410_00024.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_after_t000042340_00026.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_after_t000043840_00027.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_001_after_t000042340_00026.jpg",
+        "similarity": 0.375,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 2,
+    "captured_count": 9,
+    "selected_count": 9,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_before_t000047640_00028.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_before_t000049140_00029.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000050640_00030.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000051140_00031.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000051640_00032.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000052120_00033.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000052600_00034.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_after_t000054100_00035.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_after_t000055600_00036.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_before_t000047640_00028.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_before_t000049140_00029.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_before_t000047640_00028.jpg",
+        "similarity": 0.453125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000050640_00030.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000051140_00031.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000050640_00030.jpg",
+        "similarity": 0.90625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000051640_00032.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000051140_00031.jpg",
+        "similarity": 0.765625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000052120_00033.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000051140_00031.jpg",
+        "similarity": 0.53125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000052600_00034.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_gap_t000052120_00033.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_after_t000054100_00035.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_after_t000055600_00036.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_002_after_t000054100_00035.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 3,
+    "captured_count": 9,
+    "selected_count": 9,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_before_t000067080_00037.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_before_t000068580_00038.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000070080_00039.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000070580_00040.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000071080_00041.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000071560_00042.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000072040_00043.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_after_t000073540_00044.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_after_t000075040_00045.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_before_t000067080_00037.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_before_t000068580_00038.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_before_t000067080_00037.jpg",
+        "similarity": 0.53125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000070080_00039.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000070580_00040.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000070080_00039.jpg",
+        "similarity": 0.4375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000071080_00041.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000070580_00040.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000071560_00042.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000070580_00040.jpg",
+        "similarity": 0.875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000072040_00043.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_gap_t000070580_00040.jpg",
+        "similarity": 0.9375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_after_t000073540_00044.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_after_t000075040_00045.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_003_after_t000073540_00044.jpg",
+        "similarity": 0.859375,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 4,
+    "captured_count": 11,
+    "selected_count": 11,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_before_t000094480_00046.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_before_t000095980_00047.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000097480_00048.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000097980_00049.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000098480_00050.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000098980_00051.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000099480_00052.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000099620_00053.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000099760_00054.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_after_t000101260_00055.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_after_t000102760_00056.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_before_t000094480_00046.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_before_t000095980_00047.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_before_t000094480_00046.jpg",
+        "similarity": 0.5,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000097480_00048.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000097980_00049.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000097480_00048.jpg",
+        "similarity": 0.8125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000098480_00050.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000097480_00048.jpg",
+        "similarity": 0.796875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000098980_00051.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000098480_00050.jpg",
+        "similarity": 0.765625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000099480_00052.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000097980_00049.jpg",
+        "similarity": 0.640625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000099620_00053.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000099480_00052.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000099760_00054.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_gap_t000099620_00053.jpg",
+        "similarity": 0.9375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_after_t000101260_00055.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_after_t000102760_00056.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_004_after_t000101260_00055.jpg",
+        "similarity": 0.703125,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 5,
+    "captured_count": 9,
+    "selected_count": 9,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_before_t000102540_00057.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_before_t000104040_00058.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000105540_00059.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000106040_00060.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000106540_00061.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000106850_00062.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000107160_00063.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_after_t000108660_00064.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_after_t000110160_00065.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_before_t000102540_00057.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_before_t000104040_00058.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_before_t000102540_00057.jpg",
+        "similarity": 0.53125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000105540_00059.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000106040_00060.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000105540_00059.jpg",
+        "similarity": 0.75,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000106540_00061.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000105540_00059.jpg",
+        "similarity": 0.671875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000106850_00062.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000106540_00061.jpg",
+        "similarity": 0.921875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000107160_00063.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_gap_t000106540_00061.jpg",
+        "similarity": 0.609375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_after_t000108660_00064.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_after_t000110160_00065.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_005_after_t000108660_00064.jpg",
+        "similarity": 0.734375,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 6,
+    "captured_count": 9,
+    "selected_count": 7,
+    "removed_count": 2,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_before_t000105840_00066.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_before_t000107340_00067.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000108840_00068.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000109340_00069.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000109880_00072.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_after_t000111380_00073.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_after_t000112880_00074.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_before_t000105840_00066.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_before_t000107340_00067.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_before_t000105840_00066.jpg",
+        "similarity": 0.40625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000108840_00068.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000109340_00069.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000108840_00068.jpg",
+        "similarity": 0.890625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000109840_00070.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000109340_00069.jpg",
+        "similarity": 0.828125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000109860_00071.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000109840_00070.jpg",
+        "similarity": 1.0,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000109880_00072.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_gap_t000109860_00071.jpg",
+        "similarity": 1.0,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_after_t000111380_00073.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_after_t000112880_00074.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_006_after_t000111380_00073.jpg",
+        "similarity": 0.546875,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 7,
+    "captured_count": 9,
+    "selected_count": 9,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_before_t000139960_00075.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_before_t000141460_00076.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000142960_00077.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000143460_00078.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000143960_00079.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000144310_00080.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000144660_00081.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_after_t000146160_00082.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_after_t000147660_00083.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_before_t000139960_00075.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_before_t000141460_00076.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_before_t000139960_00075.jpg",
+        "similarity": 0.625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000142960_00077.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000143460_00078.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000142960_00077.jpg",
+        "similarity": 0.734375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000143960_00079.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000143460_00078.jpg",
+        "similarity": 0.796875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000144310_00080.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000143960_00079.jpg",
+        "similarity": 0.890625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000144660_00081.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_gap_t000143960_00079.jpg",
+        "similarity": 0.828125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_after_t000146160_00082.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_after_t000147660_00083.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_007_after_t000146160_00082.jpg",
+        "similarity": 0.765625,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 8,
+    "captured_count": 11,
+    "selected_count": 11,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_before_t000148520_00084.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_before_t000150020_00085.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000151520_00086.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000152020_00087.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000152520_00088.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000153020_00089.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000153520_00090.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000153950_00091.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000154380_00092.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_after_t000155880_00093.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_after_t000157380_00094.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_before_t000148520_00084.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_before_t000150020_00085.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_before_t000148520_00084.jpg",
+        "similarity": 0.84375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000151520_00086.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000152020_00087.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000151520_00086.jpg",
+        "similarity": 0.9375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000152520_00088.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000152020_00087.jpg",
+        "similarity": 0.5,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000153020_00089.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000152520_00088.jpg",
+        "similarity": 0.953125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000153520_00090.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000153020_00089.jpg",
+        "similarity": 0.890625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000153950_00091.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000153520_00090.jpg",
+        "similarity": 0.9375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000154380_00092.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_gap_t000153950_00091.jpg",
+        "similarity": 0.859375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_after_t000155880_00093.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_after_t000157380_00094.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_008_after_t000155880_00093.jpg",
+        "similarity": 0.6875,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 9,
+    "captured_count": 9,
+    "selected_count": 8,
+    "removed_count": 1,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_before_t000165970_00095.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_before_t000167470_00096.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000168970_00097.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000169470_00098.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000169970_00099.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000170040_00101.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_after_t000171540_00102.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_after_t000173040_00103.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_before_t000165970_00095.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_before_t000167470_00096.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_before_t000165970_00095.jpg",
+        "similarity": 0.875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000168970_00097.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000169470_00098.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000168970_00097.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000169970_00099.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000169470_00098.jpg",
+        "similarity": 0.484375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000170005_00100.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000169970_00099.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000170040_00101.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_gap_t000170005_00100.jpg",
+        "similarity": 0.991779,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_after_t000171540_00102.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_after_t000173040_00103.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_009_after_t000171540_00102.jpg",
+        "similarity": 0.421875,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 10,
+    "captured_count": 9,
+    "selected_count": 9,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_before_t000188980_00104.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_before_t000190480_00105.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000191980_00106.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000192480_00107.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000192980_00108.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000193060_00109.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000193140_00110.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_after_t000194640_00111.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_after_t000196140_00112.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_before_t000188980_00104.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_before_t000190480_00105.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_before_t000188980_00104.jpg",
+        "similarity": 0.669492,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000191980_00106.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000192480_00107.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000191980_00106.jpg",
+        "similarity": 0.953125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000192980_00108.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000191980_00106.jpg",
+        "similarity": 0.578125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000193060_00109.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000192980_00108.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000193140_00110.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_gap_t000193060_00109.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_after_t000194640_00111.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_after_t000196140_00112.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_010_after_t000194640_00111.jpg",
+        "similarity": 0.8125,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 11,
+    "captured_count": 13,
+    "selected_count": 12,
+    "removed_count": 1,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_before_t000197360_00113.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_before_t000198860_00114.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000200860_00116.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000201360_00117.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000201860_00118.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000202360_00119.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000202860_00120.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000203360_00121.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000203740_00122.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000204120_00123.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_after_t000205620_00124.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_after_t000207120_00125.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_before_t000197360_00113.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_before_t000198860_00114.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_before_t000197360_00113.jpg",
+        "similarity": 0.875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000200360_00115.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000200860_00116.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000200360_00115.jpg",
+        "similarity": 0.991779,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000201360_00117.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000200860_00116.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000201860_00118.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000201360_00117.jpg",
+        "similarity": 0.453125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000202360_00119.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000201860_00118.jpg",
+        "similarity": 0.875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000202860_00120.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000202360_00119.jpg",
+        "similarity": 0.75,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000203360_00121.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000202860_00120.jpg",
+        "similarity": 0.796875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000203740_00122.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000203360_00121.jpg",
+        "similarity": 0.953125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000204120_00123.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_gap_t000203740_00122.jpg",
+        "similarity": 0.962834,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_after_t000205620_00124.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_after_t000207120_00125.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_011_after_t000205620_00124.jpg",
+        "similarity": 0.578125,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 12,
+    "captured_count": 9,
+    "selected_count": 8,
+    "removed_count": 1,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_before_t000209240_00126.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_before_t000210740_00127.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000212240_00128.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000212740_00129.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000213320_00131.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000213400_00132.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_after_t000214900_00133.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_after_t000216400_00134.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_before_t000209240_00126.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_before_t000210740_00127.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_before_t000209240_00126.jpg",
+        "similarity": 0.890625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000212240_00128.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000212740_00129.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000212240_00128.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000213240_00130.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000212240_00128.jpg",
+        "similarity": 0.962037,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000213320_00131.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000213240_00130.jpg",
+        "similarity": 0.98608,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000213400_00132.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_gap_t000213320_00131.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_after_t000214900_00133.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_after_t000216400_00134.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_012_after_t000214900_00133.jpg",
+        "similarity": 0.515625,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 13,
+    "captured_count": 9,
+    "selected_count": 9,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_before_t000239480_00135.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_before_t000240980_00136.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000242480_00137.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000242980_00138.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000243480_00139.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000243810_00140.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000244140_00141.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_after_t000245640_00142.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_after_t000247140_00143.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_before_t000239480_00135.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_before_t000240980_00136.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_before_t000239480_00135.jpg",
+        "similarity": 0.890625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000242480_00137.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000242980_00138.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000242480_00137.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000243480_00139.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000242980_00138.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000243810_00140.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000242980_00138.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000244140_00141.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_gap_t000243480_00139.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_after_t000245640_00142.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_after_t000247140_00143.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_013_after_t000245640_00142.jpg",
+        "similarity": 0.421875,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 14,
+    "captured_count": 13,
+    "selected_count": 13,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_before_t000242080_00144.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_before_t000243580_00145.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000245080_00146.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000245580_00147.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000246080_00148.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000246580_00149.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000247080_00150.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000247580_00151.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000248080_00152.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000248530_00153.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000248980_00154.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_after_t000250480_00155.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_after_t000251980_00156.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_before_t000242080_00144.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_before_t000243580_00145.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_before_t000242080_00144.jpg",
+        "similarity": 0.640625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000245080_00146.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000245580_00147.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000245080_00146.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000246080_00148.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000245580_00147.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000246580_00149.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000245580_00147.jpg",
+        "similarity": 0.421875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000247080_00150.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000246580_00149.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000247580_00151.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000246580_00149.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000248080_00152.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000247080_00150.jpg",
+        "similarity": 0.921875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000248530_00153.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000245080_00146.jpg",
+        "similarity": 0.625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000248980_00154.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_gap_t000248530_00153.jpg",
+        "similarity": 0.964508,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_after_t000250480_00155.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_after_t000251980_00156.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_014_after_t000250480_00155.jpg",
+        "similarity": 0.953125,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 15,
+    "captured_count": 11,
+    "selected_count": 8,
+    "removed_count": 3,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_before_t000254600_00157.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_before_t000256100_00158.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000258100_00160.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000259600_00163.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000260000_00164.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000260400_00165.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_after_t000261900_00166.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_after_t000263400_00167.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_before_t000254600_00157.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_before_t000256100_00158.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_before_t000254600_00157.jpg",
+        "similarity": 0.46875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000257600_00159.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000258100_00160.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000257600_00159.jpg",
+        "similarity": 0.998812,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000258600_00161.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000258100_00160.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000259100_00162.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000258600_00161.jpg",
+        "similarity": 0.999156,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000259600_00163.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000259100_00162.jpg",
+        "similarity": 0.999535,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000260000_00164.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000258100_00160.jpg",
+        "similarity": 0.53125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000260400_00165.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_gap_t000260000_00164.jpg",
+        "similarity": 0.9375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_after_t000261900_00166.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_after_t000263400_00167.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_015_after_t000261900_00166.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 16,
+    "captured_count": 11,
+    "selected_count": 9,
+    "removed_count": 2,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_before_t000282800_00168.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_before_t000284300_00169.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000285800_00170.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000286300_00171.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000286800_00172.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000287930_00175.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000288060_00176.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_after_t000289560_00177.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_after_t000291060_00178.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_before_t000282800_00168.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_before_t000284300_00169.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_before_t000282800_00168.jpg",
+        "similarity": 0.78125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000285800_00170.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000286300_00171.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000285800_00170.jpg",
+        "similarity": 0.96875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000286800_00172.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000286300_00171.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000287300_00173.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000286300_00171.jpg",
+        "similarity": 0.453125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000287800_00174.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000287300_00173.jpg",
+        "similarity": 0.988157,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000287930_00175.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000287800_00174.jpg",
+        "similarity": 0.996737,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000288060_00176.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_gap_t000287930_00175.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_after_t000289560_00177.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_after_t000291060_00178.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_016_after_t000289560_00177.jpg",
+        "similarity": 0.65625,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 17,
+    "captured_count": 19,
+    "selected_count": 19,
+    "removed_count": 0,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_before_t000315320_00179.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_before_t000316820_00180.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000318320_00181.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000318820_00182.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000319320_00183.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000319820_00184.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000320320_00185.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000320820_00186.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000321320_00187.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000321820_00188.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000322320_00189.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000322820_00190.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000323320_00191.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000323820_00192.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000324320_00193.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000324690_00194.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000325060_00195.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_after_t000326560_00196.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_after_t000328060_00197.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_before_t000315320_00179.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_before_t000316820_00180.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_before_t000315320_00179.jpg",
+        "similarity": 0.71875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000318320_00181.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000318820_00182.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000318320_00181.jpg",
+        "similarity": 0.9375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000319320_00183.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000318320_00181.jpg",
+        "similarity": 0.953125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000319820_00184.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000319320_00183.jpg",
+        "similarity": 0.921875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000320320_00185.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000319320_00183.jpg",
+        "similarity": 0.953125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000320820_00186.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000319320_00183.jpg",
+        "similarity": 0.94318,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000321320_00187.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000319320_00183.jpg",
+        "similarity": 0.796875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000321820_00188.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000319820_00184.jpg",
+        "similarity": 0.916255,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000322320_00189.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000319320_00183.jpg",
+        "similarity": 0.90625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000322820_00190.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000319320_00183.jpg",
+        "similarity": 0.90625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000323320_00191.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000318320_00181.jpg",
+        "similarity": 0.609375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000323820_00192.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000318320_00181.jpg",
+        "similarity": 0.71875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000324320_00193.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000323820_00192.jpg",
+        "similarity": 0.765625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000324690_00194.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000324320_00193.jpg",
+        "similarity": 0.97547,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000325060_00195.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_gap_t000324320_00193.jpg",
+        "similarity": 0.9375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_after_t000326560_00196.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_after_t000328060_00197.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_017_after_t000326560_00196.jpg",
+        "similarity": 0.78125,
+        "action": "keep"
+      }
+    ]
+  },
+  {
+    "gap_index": 18,
+    "captured_count": 44,
+    "selected_count": 24,
+    "removed_count": 20,
+    "threshold": 0.985,
+    "selected_frames": [
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_before_t000338680_00198.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_before_t000340180_00199.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000341680_00200.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000342180_00201.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000342680_00202.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000343180_00203.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000343680_00204.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000345680_00208.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000346180_00209.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000346680_00210.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000347180_00211.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000347680_00212.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000348180_00213.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000348680_00214.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000349180_00215.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000349680_00216.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000350180_00217.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000350680_00218.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000351180_00219.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000351680_00220.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000352180_00221.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000352680_00222.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000361280_00240.jpg",
+      "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_after_t000362780_00241.jpg"
+    ],
+    "decisions": [
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_before_t000338680_00198.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_before_t000340180_00199.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_before_t000338680_00198.jpg",
+        "similarity": 0.546875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000341680_00200.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000342180_00201.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000341680_00200.jpg",
+        "similarity": 0.734375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000342680_00202.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000342180_00201.jpg",
+        "similarity": 0.796875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000343180_00203.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000342180_00201.jpg",
+        "similarity": 0.671875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000343680_00204.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000342680_00202.jpg",
+        "similarity": 0.65625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000344180_00205.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000343680_00204.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000344680_00206.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000344180_00205.jpg",
+        "similarity": 0.99622,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000345180_00207.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000344680_00206.jpg",
+        "similarity": 0.997697,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000345680_00208.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000345180_00207.jpg",
+        "similarity": 0.999181,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000346180_00209.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000345680_00208.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000346680_00210.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000346180_00209.jpg",
+        "similarity": 0.984375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000347180_00211.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000341680_00200.jpg",
+        "similarity": 0.640625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000347680_00212.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000347180_00211.jpg",
+        "similarity": 0.953125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000348180_00213.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000347680_00212.jpg",
+        "similarity": 0.828125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000348680_00214.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000348180_00213.jpg",
+        "similarity": 0.71875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000349180_00215.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000343180_00203.jpg",
+        "similarity": 0.734375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000349680_00216.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000343180_00203.jpg",
+        "similarity": 0.5625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000350180_00217.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000348180_00213.jpg",
+        "similarity": 0.6875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000350680_00218.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000347680_00212.jpg",
+        "similarity": 0.765625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000351180_00219.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000347180_00211.jpg",
+        "similarity": 0.796875,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000351680_00220.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000351180_00219.jpg",
+        "similarity": 0.765625,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000352180_00221.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000351680_00220.jpg",
+        "similarity": 0.828125,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000352680_00222.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000349180_00215.jpg",
+        "similarity": 0.802141,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000353180_00223.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000352680_00222.jpg",
+        "similarity": 0.84375,
+        "action": "keep"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000353680_00224.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000353180_00223.jpg",
+        "similarity": 0.999974,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000354180_00225.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000353680_00224.jpg",
+        "similarity": 0.999763,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000354680_00226.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000354180_00225.jpg",
+        "similarity": 0.999959,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000355180_00227.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000354680_00226.jpg",
+        "similarity": 0.999946,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000355680_00228.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000355180_00227.jpg",
+        "similarity": 0.999993,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000356180_00229.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000355680_00228.jpg",
+        "similarity": 0.999947,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000356680_00230.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000356180_00229.jpg",
+        "similarity": 0.999993,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000357180_00231.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000356680_00230.jpg",
+        "similarity": 0.999969,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000357680_00232.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000357180_00231.jpg",
+        "similarity": 0.999993,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000358180_00233.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000357680_00232.jpg",
+        "similarity": 0.999969,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000358680_00234.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000358180_00233.jpg",
+        "similarity": 0.999959,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000359180_00235.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000358680_00234.jpg",
+        "similarity": 0.999551,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000359680_00236.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000359180_00235.jpg",
+        "similarity": 0.999903,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000360180_00237.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000359680_00236.jpg",
+        "similarity": 0.9999,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000360680_00238.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000360180_00237.jpg",
+        "similarity": 0.999959,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000360980_00239.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000360680_00238.jpg",
+        "similarity": 0.999939,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000361280_00240.jpg",
+        "compared_to": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_gap_t000360980_00239.jpg",
+        "similarity": 0.999963,
+        "action": "replace_similar"
+      },
+      {
+        "frame": "C:\\Users\\Lamed\\Documents\\GitHub\\Audio_brige\\kwon2\\backend\\runs\\youtube\\3REAPXOdi-Y\\r1\\frames\\gap_018_after_t000362780_00241.jpg",
+        "compared_to": null,
+        "similarity": null,
+        "action": "keep"
+      }
+    ]
+  }
+]

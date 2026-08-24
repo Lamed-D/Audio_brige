@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voice-bridge.local/contracts/manifest-v1.1.schema.json",
+  "title": "VOICE BRIDGE Manifest v1.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "manifest_id",
+    "revision",
+    "video",
+    "voice",
+    "playback",
+    "segments"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.1" },
+    "manifest_id": { "type": "string", "minLength": 1 },
+    "revision": { "type": "integer", "minimum": 1 },
+    "video": {
+      "type": "object",
+      "required": ["provider", "video_id", "duration_ms"],
+      "properties": {
+        "provider": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{0,31}$" },
+        "video_id": { "type": "string", "pattern": "^[A-Za-z0-9_-]{1,128}$" },
+        "duration_ms": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "required": ["voice_id", "format", "sample_rate_hz"],
+      "properties": {
+        "voice_id": { "type": "string", "minLength": 1 },
+        "format": { "const": "audio/wav" },
+        "sample_rate_hz": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "playback": {
+      "type": "object",
+      "required": [
+        "duck_factor",
+        "preload_count",
+        "lookahead_ms",
+        "late_tolerance_ms",
+        "auto_pause_default",
+        "max_extended_duration_ms",
+        "min_extended_interval_ms"
+      ],
+      "properties": {
+        "duck_factor": { "type": "number", "minimum": 0, "maximum": 1 },
+        "preload_count": { "type": "integer", "minimum": 0 },
+        "lookahead_ms": { "type": "integer", "minimum": 0 },
+        "late_tolerance_ms": { "type": "integer", "minimum": 0 },
+        "auto_pause_default": { "type": "boolean" },
+        "max_extended_duration_ms": { "type": "integer", "minimum": 1 },
+        "min_extended_interval_ms": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "segments": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/segment" }
+    }
+  },
+  "$defs": {
+    "audio": {
+      "type": "object",
+      "required": ["path", "duration_ms", "sha256"],
+      "properties": {
+        "path": { "type": "string", "pattern": "^/v1/audio/[a-f0-9]{64}\\.wav$" },
+        "duration_ms": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "segment": {
+      "type": "object",
+      "required": [
+        "id",
+        "mode",
+        "trigger_ms",
+        "text",
+        "importance",
+        "source",
+        "confidence",
+        "audio"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "mode": { "enum": ["overlay", "extended"] },
+        "trigger_ms": { "type": "integer", "minimum": 0 },
+        "deadline_ms": { "type": "integer", "minimum": 1 },
+        "text": { "type": "string", "minLength": 1 },
+        "importance": { "enum": ["normal", "high"] },
+        "source": { "enum": ["ocr", "vlm"] },
+        "confidence": { "const": "high" },
+        "audio": { "$ref": "#/$defs/audio" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "mode": { "const": "overlay" } } },
+          "then": { "required": ["deadline_ms"] }
+        },
+        {
+          "if": { "properties": { "mode": { "const": "extended" } } },
+          "then": {
+            "properties": { "importance": { "const": "high" } },
+            "not": { "required": ["deadline_ms"] }
+          }
+        }
+      ]
+    }
+  }
+}

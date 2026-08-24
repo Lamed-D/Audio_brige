@@ -1,0 +1,72 @@
+{
+  "manifest_version": 3,
+  "name": "VOICE BRIDGE",
+  "description": "웹 영상에 사용자 요청형 AI 화면해설을 재생합니다.",
+  "version": "0.2.6",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "icons/icon.png",
+    "32": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "alarms",
+    "notifications",
+    "offscreen",
+    "sidePanel",
+    "storage",
+    "tts"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:5000/*"
+  ],
+  "action": {
+    "default_title": "VOICE BRIDGE 열기",
+    "default_icon": {
+      "16": "icons/icon.png",
+      "32": "icons/icon.png",
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    }
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+V"
+      },
+      "description": "VOICE BRIDGE 열기"
+    },
+    "announce-progress": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "화면해설 생성 요청 또는 현재 상태 확인"
+    },
+    "announce-current-video-time": {
+      "suggested_key": {
+        "default": "Alt+Shift+J"
+      },
+      "description": "현재 영상 재생 시간과 남은 시간 확인"
+    },
+    "toggle-audio-description": {
+      "suggested_key": {
+        "default": "Alt+Shift+H"
+      },
+      "description": "화면해설 켜기 또는 끄기"
+    }
+  },
+  "side_panel": {
+    "default_path": "sidepanel/index.html"
+  },
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["https://*.youtube.com/*"],
+      "run_at": "document_end"
+    }
+  ]
+}

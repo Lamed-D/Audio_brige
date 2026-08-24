@@ -2,7 +2,9 @@
 
 이 디렉터리는 사전 처리된 화면해설 manifest와 WAV 클립을 백엔드가 제공하고, Chrome 확장프로그램이 YouTube 영상 시간에 맞춰 재생하는 POC입니다.
 
-> 구현 기준은 `../VOICE_BRIDGE_개발분담_연동규격_v1.0.docx`입니다. 신규 연동은 `/v1` API를 사용합니다. 기존 `/session/*` API는 초기 실시간 캡처 데모와의 호환을 위해 남겨 둔 경로이며, 최종 구조의 기본 경로가 아닙니다.
+> 구현 기준은 `../VOICE_BRIDGE_개발분담_연동규격_v1.2.docx`입니다. 신규 연동은 `/v1` API를 사용합니다. 기존 `/session/*` API는 초기 실시간 캡처 데모와의 호환을 위해 남겨 둔 경로이며, 최종 구조의 기본 경로가 아닙니다.
+>
+> 실제 크롬 확장프로그램 구현은 저장소 루트의 `../../VOICE_BRIDGE_FE_GITHUB_UPLOAD_v0.1.0/`이며, 이 백엔드의 API/manifest/JobStatus 응답은 그 저장소의 `contracts/*.schema.json`을 기준으로 검증합니다(`docs/BACKEND_INTEGRATION.md` 참고). `sound/extension/`은 더 단순한 초기 버전입니다.
 
 ## 최종 구조
 
@@ -152,7 +154,7 @@ NARRATION_MODE_DEFAULT=tts
 `backend/static/test.html`의 "URL로 자동 등록 + 처리" 칸에 유튜브 URL이나 video_id를 붙여넣거나, 직접 호출합니다.
 
 ```powershell
-curl.exe -i -X POST http://127.0.0.1:5000/dev/process `
+curl.exe -i -X POST http://127.0.0.1:8000/dev/process `
   -H "Content-Type: application/json" `
   --data-raw "{`"provider`":`"youtube`",`"video_id`":`"abc123`"}"
 ```
@@ -166,6 +168,7 @@ curl.exe -i -X POST http://127.0.0.1:5000/dev/process `
 - `VOICE_BRIDGE_ENABLE_DEV_PIPELINE_API=false`로 끌 수 있고, 이 서버를 `127.0.0.1` 밖에 노출할 계획이면 반드시 꺼야 합니다.
 - 이 도구를 실행하는 사람이 해당 영상을 처리할 권리가 있는지 스스로 확인해야 합니다 — POC 원칙(권리 확인된 영상만 처리)은 여전히 유효하고, 이 엔드포인트가 그 판단을 대신해 주지 않습니다.
 - 유튜브가 403/포맷 오류를 준다면 대개 yt-dlp가 오래됐거나 해당 영상이 로그인을 요구하는 경우입니다. `uv sync -U`로 yt-dlp를 올려보세요.
+- **이미 처리된 영상은 자동으로 재처리를 건너뜁니다.** 같은 `provider`+`video_id`에 게시된 manifest가 이미 있으면 다운로드도, 어댑터 호출(과금 API)도 하지 않고 그 자리에서 `{"skipped_reprocessing": true, ...}`를 바로 돌려줍니다 — manifest 파일 자체가 "이미 처리됨" 기록이라 별도 DB가 필요 없습니다. 새 revision을 강제로 만들려면 요청 본문에 `"force": true`를 추가합니다.
 
 ### 3.2 CLI로 직접 실행 (`pipeline/build_manifest.py`)
 
@@ -214,6 +217,29 @@ runs/youtube/abc123/r1/
 절대 조회하지 않으므로 원본 프레임·오디오가 공개될 위험이 없고, 원본 영상마다 계속 쌓이므로 디스크 정리는 운영자가
 직접 해야 합니다(오래된 revision의 run은 지워도 이미 게시된 manifest/clip에는 영향이 없습니다).
 
+#### Vision API 호출 시 이미지 축소 (비용 절감)
+
+`runs/.../frames/*.jpg`에는 캡처한 원본 화질 그대로 저장하지만, M3(OCR)·M4(서술) 단계에서 OpenAI
+비전 모델(`OPENAI_VISION_MODEL`)을 호출할 때는 `adapters/openai_adapter.py`의 `_encode_image()`가
+매번 이미지를 메모리에서만 축소·재압축해서 보냅니다 — 디스크의 원본 파일은 건드리지 않습니다.
+
+- `config.VISION_MAX_DIMENSION_PX`(기본 1280px): 긴 변이 이보다 크면 비율 유지한 채 줄입니다. 이보다 작은 프레임은 확대하지 않습니다.
+- `config.VISION_JPEG_QUALITY`(기본 82): JPEG 재압축 품질.
+
+비전 모델은 해상도에 비례해 타일 단위로 과금하므로, 인식 정확도에 지장 없는 선까지만 화질을 낮추면
+입력 토큰 비용이 줄어듭니다. 두 값 모두 환경변수가 아니라 `config.py`의 상수이므로 바꾸려면 코드를
+직접 수정합니다.
+
+#### 유사 프레임 스킵 (API 호출 횟수 절감)
+
+위 항목이 프레임 1장당 페이로드를 줄이는 것이라면, 이건 애초에 보내는 프레임 수 자체를 줄입니다.
+`capture_gap_frames`가 gap 안에서 초당 3장씩 찍다 보니 화면이 안 바뀌는 구간(정지 화면, 멈춘 장면)은
+사실상 같은 그림을 여러 장 중복으로 캡처합니다. `pipeline/narrate.py`의 `decide()`는 OCR/서술 후보를
+고르기 전에 `_dedupe_similar_frames()`로 시간순으로 훑으며, 직전에 채택한 프레임과 그레이스케일
+평균 밝기 차이(`config.FRAME_SIMILARITY_DIFF_THRESHOLD`, 기본 0.02 = 2%)가 이 값 미만인 프레임을
+API 호출 대상에서 제외합니다. 실제 화면 변화가 있는 프레임은 값이 threshold를 넘으므로 그대로
+남습니다 — 정지 구간만 골라서 줄이는 방식입니다.
+
 ### 3.3 수동으로 직접 만들기 (파이프라인 없이)
 
 다른 파이프라인이나 사람이 직접 클립을 만드는 경우를 위한 정확한 스키마 참고용입니다.
@@ -224,7 +250,7 @@ runs/youtube/abc123/r1/
 
 ```json
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "videos": [
     {
       "provider": "youtube",
@@ -243,37 +269,61 @@ runs/youtube/abc123/r1/
 
 #### WAV 클립
 
-공개 클립은 WAV PCM 16-bit, mono, 24kHz **여야 합니다** (`pipeline/tts.py`가 이 포맷을 강제로 재인코딩합니다; 직접 만든다면 같은 포맷을 맞춰야 `core.storage`의 실측 검증을 통과합니다). 각 클립의 실제 길이는 해당 segment의 `end_ms - start_ms` 이하여야 합니다.
+공개 클립은 WAV PCM 16-bit, mono, 24kHz **여야 합니다** (`pipeline/tts.py`가 이 포맷을 강제로 재인코딩합니다; 직접 만든다면 같은 포맷을 맞춰야 `core.storage`의 실측 검증을 통과합니다). 각 클립의 실제 길이는 아래 재생 모드별 상한(`deadline_ms - trigger_ms` 또는 `max_extended_duration_ms`) 이하여야 합니다.
 
 ```powershell
 $clipHash = (Get-FileHash -Algorithm SHA256 .\prepared\seg-001.wav).Hash.ToLowerInvariant()
 Copy-Item .\prepared\seg-001.wav ".\data\audio\$clipHash.wav"
 ```
 
-#### Public manifest
+#### Public manifest — schema v1.1 (연동규격 v1.2)
 
-Manifest는 `backend/data/manifests/youtube/abc123.json`에 둡니다.
+Manifest는 `backend/data/manifests/youtube/abc123.json`에 둡니다. **v1.0에서 v1.1로 스키마가 바뀌었습니다** — segment가 `start_ms/end_ms`(항상 영상을 계속 재생) 대신 `mode`(`overlay`|`extended`) + `trigger_ms` + (overlay만) `deadline_ms`를 씁니다. `overlay`는 자연스러운 공백에 원본을 계속 재생하며 더킹하고, `extended`는 정보가 중요한데 공백이 부족할 때 영상을 잠시 멈추고 해설합니다.
 
 ```json
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "manifest_id": "youtube:abc123:r1",
   "revision": 1,
   "video": { "provider": "youtube", "video_id": "abc123", "duration_ms": 512400 },
   "voice": { "voice_id": "ko-KR-poc", "format": "audio/wav", "sample_rate_hz": 24000 },
-  "playback": { "duck_factor": 0.35, "preload_count": 3, "lookahead_ms": 500, "late_tolerance_ms": 250 },
+  "playback": {
+    "duck_factor": 0.35,
+    "preload_count": 3,
+    "lookahead_ms": 500,
+    "late_tolerance_ms": 250,
+    "auto_pause_default": true,
+    "max_extended_duration_ms": 8000,
+    "min_extended_interval_ms": 15000
+  },
   "segments": [
     {
       "id": "seg-001",
-      "start_ms": 12400,
-      "end_ms": 16200,
+      "mode": "overlay",
+      "trigger_ms": 12400,
+      "deadline_ms": 16200,
       "text": "화면에 표, 3분기 매출 3억",
+      "importance": "normal",
       "source": "ocr",
       "confidence": "high",
       "audio": {
         "path": "/v1/audio/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.wav",
         "duration_ms": 3110,
         "sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+      }
+    },
+    {
+      "id": "seg-002",
+      "mode": "extended",
+      "trigger_ms": 32800,
+      "text": "강사가 표의 붉은 막대를 가리킨다",
+      "importance": "high",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/a174c8a174c8a174c8a174c8a174c8a174c8a174c8a174c8a174c8a174c8a1.wav",
+        "duration_ms": 4380,
+        "sha256": "a174c8a174c8a174c8a174c8a174c8a174c8a174c8a174c8a174c8a174c8a1"
       }
     }
   ]
@@ -283,13 +333,27 @@ Manifest는 `backend/data/manifests/youtube/abc123.json`에 둡니다.
 체크리스트:
 
 - `manifest_id`는 `{provider}:{video_id}:r{revision}` 형식입니다.
-- Segment는 `start_ms` 오름차순이며 서로 겹치면 안 됩니다.
+- Segment는 `trigger_ms` 오름차순이며, 이전 세그먼트의 점유 구간(overlay는 `deadline_ms`, extended는 `trigger_ms + audio.duration_ms`)과 겹치면 안 됩니다.
+- `mode`가 `overlay`면 `deadline_ms`가 **필수**이고 `audio.duration_ms <= deadline_ms - trigger_ms`여야 합니다. `mode`가 `extended`면 `deadline_ms`를 아예 넣지 않고, `importance`는 반드시 `high`이며, `audio.duration_ms <= playback.max_extended_duration_ms`, 그리고 이전 extended 세그먼트와 `trigger_ms` 간격이 `playback.min_extended_interval_ms` 이상이어야 합니다.
+- `importance`는 `normal` 또는 `high`입니다.
 - 공개 segment의 `source`는 `ocr` 또는 `vlm`, `confidence`는 `high`입니다. `skip` 항목은 공개 manifest에 넣지 않습니다.
 - `audio.path`는 `/v1/audio/{audio.sha256}.wav`와 정확히 같아야 합니다.
 - `audio.sha256`은 64자리 소문자 SHA-256이고 실제 파일 내용과 일치해야 합니다.
-- `audio.duration_ms <= end_ms - start_ms`여야 합니다.
 - 같은 영상을 다시 생성하면 기존 결과를 덮어쓴 것으로 숨기지 말고 `revision`을 올립니다.
 - 파일을 직접 놓는 대신, `core.storage.FileRepository.publish_manifest()` / `publish_audio()`를 코드에서 호출하면 이 검증을 전부 대신 해 주고 원자적으로 씁니다 — `pipeline/build_manifest.py`가 실제로 이렇게 합니다.
+
+**스키마가 breaking change라 v1.0으로 게시된 기존 manifest는 더 이상 유효하지 않습니다.** `backend/data/manifests/`에 이미 있는 결과가 있다면 3.1/3.2의 방법으로 다시 처리해서 v1.1로 재게시해야 `/v1/manifests`가 다시 200을 돌려줍니다.
+
+#### M5: overlay/extended/skip 판정 (연동규격 4.2)
+
+`pipeline/build_manifest.py`가 gap마다 다음 순서로 재생 모드를 정합니다:
+
+1. **overlay**: 합성된 해설 음성 길이가 `gap 길이(natural_window_ms) - config.MODE_SAFETY_MARGIN_MS`(기본 300ms) 이내면 자연 공백에 넣습니다. 영상은 멈추지 않고 원본 볼륨만 낮춥니다.
+2. **extended**: overlay 조건을 못 채웠고, `importance == "high"`이며, 길이가 `config.MAX_EXTENDED_DURATION_MS`(8,000ms) 이하이고, 직전 extended 세그먼트와의 간격이 `config.MIN_EXTENDED_INTERVAL_MS`(15,000ms) 이상이면 영상을 잠시 멈추고 해설합니다.
+3. 소스가 `vlm`이면 M4 축약(`_shrink_and_resynthesize`)으로 한 번 더 짧게 다시 만들어 1·2를 재시도합니다. OCR 원문은 요약하지 않으므로(6.4) 바로 3번으로 못 갑니다.
+4. 그래도 안 되면 skip합니다 (`tts_overflow_ocr` 또는 `tts_overflow_unshrinkable`로 `script.json`에 기록).
+
+`importance`는 연동규격 6.1 예시와 동일한 POC 휴리스틱을 씁니다: **VLM 서술(화면을 보고 새로 생성한 설명, 대사가 다루지 않는 정보)은 `high`, OCR 원문(화면 텍스트를 그대로 읽은 것, 보조 정보)은 `normal`**입니다. 장면·문장 경계 판정(`pause_eligible`)은 별도로 만들지 않았습니다 — gap 자체가 이미 확정된 무음 구간(발화와 발화 사이)이라 구조적으로 안전한 pause 지점이라고 보고, 모든 gap을 pause 가능한 것으로 취급합니다.
 
 ## 4. Backend 실행
 
@@ -298,7 +362,7 @@ cd C:\Users\Lamed\Documents\GitHub\Audio_brige\dev\sound\backend
 uv run python app.py
 ```
 
-기본 주소는 `http://127.0.0.1:5000`입니다. 개발 서버가 외부 인터페이스에 공개되지 않도록 기본 host를 그대로 사용하세요.
+기본 주소는 `http://127.0.0.1:8000`입니다. 개발 서버가 외부 인터페이스에 공개되지 않도록 기본 host를 그대로 사용하세요.
 
 테스트를 돌리려면:
 
@@ -312,38 +376,44 @@ PowerShell의 `curl` 별칭과 혼동하지 않도록 `curl.exe`를 사용합니
 
 ```powershell
 # 1) 서버와 data 디렉터리 상태
-curl.exe -i http://127.0.0.1:5000/v1/health
+curl.exe -i http://127.0.0.1:8000/v1/health
 
 # 2) 준비된 manifest
-curl.exe -i http://127.0.0.1:5000/v1/manifests/youtube/abc123
+curl.exe -i http://127.0.0.1:8000/v1/manifests/youtube/abc123
 
 # 3) 등록 영상의 생성/준비 작업 요청 (manifest 가 이미 있으면 즉시 ready)
-curl.exe -i -X POST http://127.0.0.1:5000/v1/jobs `
+curl.exe -i -X POST http://127.0.0.1:8000/v1/jobs `
   -H "Content-Type: application/json" `
   --data-raw "{`"provider`":`"youtube`",`"video_id`":`"abc123`",`"duration_ms`":512400}"
 
 # 4) 위 응답의 job_id로 상태 확인
-curl.exe -i http://127.0.0.1:5000/v1/jobs/<job_id>
+curl.exe -i http://127.0.0.1:8000/v1/jobs/<job_id>
 
 # 5) manifest에 기록한 실제 SHA-256으로 WAV 확인
-curl.exe -i -o NUL http://127.0.0.1:5000/v1/audio/<64자리-sha256>.wav
+curl.exe -i -o NUL http://127.0.0.1:8000/v1/audio/<64자리-sha256>.wav
 ```
 
 기대 결과:
 
-- Health: HTTP `200`
-- 준비된 manifest: HTTP `200`과 schema `1.0` JSON
-- 활성 job이 있는 미준비 영상: HTTP `202`와 `job_id`, `retry_after_ms`
+- Health: HTTP `200`, `schema_version: "1.1"`
+- 준비된 manifest: HTTP `200`과 schema `1.1` JSON
+- `POST /v1/jobs` 응답은 연동규격 6.2 그대로 상황별로 다릅니다: 신규 생성이면 `202`, manifest가 이미 있으면(즉시 준비) `200`, **같은 영상에 이미 진행 중인 job이 있으면 `409`**입니다. 세 경우 모두 같은 JobStatus 본문(`job_id`, `status`, `video_key`, 진행 중이면 `stage`/`progress_percent`/`eta_seconds`/`eta_confidence`/`retry_after_ms`, ready면 `manifest_path`/`manifest_id`/`revision`)을 돌려줍니다.
 - 등록됐지만 manifest와 활성 job이 아직 없는 영상: manifest 조회 HTTP `404` (`POST /v1/jobs` 후에는 `202`, 실제로 manifest를 만들려면 3장의 파이프라인을 돌려야 합니다)
 - 미등록·비활성 영상: HTTP `404`
-- Manifest가 이미 배치된 영상에 대한 job 요청: `ready` 상태와 `manifest_path`
+- Manifest가 이미 배치된 영상에 대한 job 요청: `ready` 상태와 `manifest_path`, `progress_percent: 100`
 - 준비된 audio: HTTP `200`, `Content-Type: audio/wav`, immutable cache 헤더
 
 Manifest가 `200`이어도 확장프로그램은 현재 YouTube 영상의 ID와 길이를 다시 확인합니다. 길이가 1,000ms보다 많이 다르거나 manifest가 잘못된 경우 안전상 전체 화면해설을 재생하지 않습니다.
 
+#### 작업 진행률 실시간 확인 (연동규격 6.3)
+
+`/dev/process`로 **이미 catalog에 등록된** video_id를 처리하면, 파이프라인이 실행되는 동안 실시간으로 갱신되는 job이 함께 만들어집니다. 같은 서버에 다른 요청으로 `GET /v1/jobs/{job_id}`를 폴링하면 `stage`(`media_preparation` → `audio_analysis` → `visual_analysis`/`description_generation`/`speech_synthesis` 반복 → `validation`)와 `progress_percent`(0~99, 감소하지 않음), 대략적인 `eta_seconds`/`eta_confidence`가 진행 중에 실제로 바뀌는 것을 볼 수 있습니다. **처음 보는 video_id**(아직 catalog에 없음)는 이 진행률 연결이 없습니다 — duration_ms를 실측해야 등록할 수 있어서 처리 전에는 job을 만들 근거가 없기 때문입니다.
+
+`POST /v1/jobs`는 여전히 이 실행을 직접 트리거하지 않습니다 — manifest가 실제로 생기는지 그때그때 확인하는 수동적인 상태 조회 엔드포인트입니다(연동규격의 "임의 URL 수집 금지" POC 원칙과 동일하게, 실제 다운로드·과금 API 호출은 `/dev/process`나 CLI에서만 일어납니다). `POST /v1/jobs`로 먼저 job_id를 받아 두고, 별도로 `/dev/process`나 CLI를 실행해 실제 처리를 시작하면 그 job_id로 진행 상황을 볼 수 있습니다.
+
 ## 6. 테스트 페이지 (`backend/static/test.html`)
 
-Backend를 띄운 뒤 `http://127.0.0.1:5000/static/test.html`을 열면 확장프로그램 없이 백엔드를 점검할 수 있습니다.
+Backend를 띄운 뒤 `http://127.0.0.1:8000/static/test.html`을 열면 확장프로그램 없이 백엔드를 점검할 수 있습니다.
 
 - **0. 백엔드 상태** — `/v1/health`.
 - **0.5 URL로 자동 등록 + 처리** — 3.1의 `/dev/process`를 붙여넣기 UI로. 완료되면 아래 입력칸을 자동으로 채웁니다.
@@ -355,7 +425,7 @@ Backend를 띄운 뒤 `http://127.0.0.1:5000/static/test.html`을 열면 확장�
 
 ## 7. Chrome 확장프로그램 로드
 
-1. Backend를 `http://127.0.0.1:5000`에서 실행합니다.
+1. Backend를 `http://127.0.0.1:8000`에서 실행합니다.
 2. Chrome에서 `chrome://extensions`를 엽니다.
 3. 오른쪽 위 **개발자 모드**를 켭니다.
 4. **압축해제된 확장 프로그램을 로드합니다**를 누릅니다.
@@ -429,7 +499,7 @@ POST /session/{session_id}/stop
 ### Side Panel에서 Backend 연결 실패
 
 - `/v1/health`가 먼저 성공하는지 확인합니다.
-- 확장 설정의 API origin이 `http://127.0.0.1:5000`인지 확인합니다.
+- 확장 설정의 API origin이 `http://127.0.0.1:8000`인지 확인합니다.
 - `.env`의 `VOICE_BRIDGE_CORS_ORIGINS`에 현재 확장 ID가 있는지 확인합니다.
 - `manifest.json`의 host permission과 확장을 다시 로드했는지 확인합니다.
 

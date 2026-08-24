@@ -1,0 +1,331 @@
+[
+  {
+    "gap_index": 0,
+    "start_ms": 300,
+    "end_ms": 3780,
+    "max_chars": 17,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "제1차 세계대전, 참호에서의 요리.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-001",
+    "source": "ocr",
+    "confidence": "high",
+    "text": "제1차 세계대전, 참호에서의 요리.",
+    "audio_duration_ms": 2675,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 1,
+    "start_ms": 5780,
+    "end_ms": 7000,
+    "max_chars": 6,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "1917년 여름, 솜 전선.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-002",
+    "source": "ocr",
+    "confidence": "high",
+    "text": "1917년 여름, 솜 전선.",
+    "audio_duration_ms": 2225,
+    "mode": "extended",
+    "importance": "high"
+  },
+  {
+    "gap_index": 2,
+    "start_ms": 18780,
+    "end_ms": 26620,
+    "max_chars": 39,
+    "candidate_max_chars": 39,
+    "describe_attempts": [
+      {
+        "text": "스미스가 불을 피우려고 참호 바닥을 곡괭이로 판다.",
+        "confidence": "high",
+        "max_chars": 39,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-003",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "스미스가 불을 피우려고 참호 바닥을 곡괭이로 판다.",
+    "audio_duration_ms": 3975,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 3,
+    "start_ms": 33240,
+    "end_ms": 36080,
+    "max_chars": 14,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "스미스가 주머니칼로 당근 껍질을 벗긴다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 10,
+        "rejected_reason": "주머니칼로 채소를 손질한다는 내용이 직전 대사로 이미 전달됐다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "tts_overflow_unshrinkable",
+    "source": "vlm"
+  },
+  {
+    "gap_index": 4,
+    "start_ms": 67020,
+    "end_ms": 68200,
+    "max_chars": 6,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": "not_meaningful:재료를 아낀다는 내용은 대사로 전달됐고, 화면에는 반합과 스미스의 얼굴로 전환되는 것 외에 뚜렷한 새 행동이 없다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "not_meaningful:재료를 아낀다는 내용은 대사로 전달됐고, 화면에는 반합과 스미스의 얼굴로 전환되는 것 외에 뚜렷한 새 행동이 없다."
+  },
+  {
+    "gap_index": 5,
+    "start_ms": 70780,
+    "end_ms": 71720,
+    "max_chars": 5,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": "not_meaningful:스미스가 아래로 손을 뻗는 짧은 동작뿐이며, 재료를 나누는 핵심 정보는 직후 대사로 전달된다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "not_meaningful:스미스가 아래로 손을 뻗는 짧은 동작뿐이며, 재료를 나누는 핵심 정보는 직후 대사로 전달된다."
+  },
+  {
+    "gap_index": 6,
+    "start_ms": 85160,
+    "end_ms": 88900,
+    "max_chars": 19,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "스미스가 감자를 잘게 썬다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-004",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "스미스가 감자를 잘게 썬다.",
+    "audio_duration_ms": 2062,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 7,
+    "start_ms": 119660,
+    "end_ms": 121140,
+    "max_chars": 7,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": "not_meaningful:스미스가 통조림을 여는 모습은 직전 대사로 이미 전달됐다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "not_meaningful:스미스가 통조림을 여는 모습은 직전 대사로 이미 전달됐다."
+  },
+  {
+    "gap_index": 8,
+    "start_ms": 123500,
+    "end_ms": 127060,
+    "max_chars": 18,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": "not_meaningful:통조림을 다루는 모습은 직전 대사로 이미 전달됐고, 새로운 핵심 행동은 없다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "not_meaningful:통조림을 다루는 모습은 직전 대사로 이미 전달됐고, 새로운 핵심 행동은 없다."
+  },
+  {
+    "gap_index": 9,
+    "start_ms": 129320,
+    "end_ms": 130300,
+    "max_chars": 5,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": "not_meaningful:스미스가 고기를 자르는 모습은 직전 대사로 이미 전달됐으며, 별도의 중요한 행동이나 장면 전환이 없다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "not_meaningful:스미스가 고기를 자르는 모습은 직전 대사로 이미 전달됐으며, 별도의 중요한 행동이나 장면 전환이 없다."
+  },
+  {
+    "gap_index": 10,
+    "start_ms": 167580,
+    "end_ms": 187940,
+    "max_chars": 102,
+    "candidate_max_chars": 102,
+    "describe_attempts": [
+      {
+        "text": "스미스가 스튜를 저은 뒤 남은 통조림 쇠고기를 넣고 계속 끓인다.",
+        "confidence": "high",
+        "max_chars": 102,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-005",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "스미스가 스튜를 저은 뒤 남은 통조림 쇠고기를 넣고 계속 끓인다.",
+    "audio_duration_ms": 5025,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 11,
+    "start_ms": 194360,
+    "end_ms": 196720,
+    "max_chars": 12,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "숟가락을 챙긴 스미스가 주머니를 뒤진다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "숟가락을 편다",
+        "confidence": "high",
+        "max_chars": 8,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-006",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "숟가락을 편다",
+    "audio_duration_ms": 1075,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 12,
+    "start_ms": 201520,
+    "end_ms": 202880,
+    "max_chars": 7,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "스미스가 스튜에 소스를 붓는다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 5,
+        "rejected_reason": "직후 대사에서 HB 소스임을 알리며, 손동작은 불분명하고 핵심 행동도 아니다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "tts_overflow_unshrinkable",
+    "source": "vlm"
+  },
+  {
+    "gap_index": 13,
+    "start_ms": 206820,
+    "end_ms": 208360,
+    "max_chars": 8,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "스미스가 스튜에 HB 소스를 뿌린다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "소스 넣는다",
+        "confidence": "high",
+        "max_chars": 6,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-007",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "소스 넣는다",
+    "audio_duration_ms": 875,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 14,
+    "start_ms": 237000,
+    "end_ms": 258260,
+    "max_chars": 106,
+    "candidate_max_chars": 106,
+    "describe_attempts": [
+      {
+        "text": "스미스가 스튜를 연달아 떠먹고, 화면이 어두워진다.",
+        "confidence": "high",
+        "max_chars": 106,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-008",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "스미스가 스튜를 연달아 떠먹고, 화면이 어두워진다.",
+    "audio_duration_ms": 3862,
+    "mode": "overlay",
+    "importance": "normal"
+  }
+]

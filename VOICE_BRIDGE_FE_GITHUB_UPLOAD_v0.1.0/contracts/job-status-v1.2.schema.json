@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voice-bridge.local/contracts/job-status-v1.2.schema.json",
+  "title": "VOICE BRIDGE Job Status v1.2",
+  "oneOf": [
+    { "$ref": "#/$defs/queued" },
+    { "$ref": "#/$defs/processing" },
+    { "$ref": "#/$defs/ready" },
+    { "$ref": "#/$defs/failed" }
+  ],
+  "$defs": {
+    "jobId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "videoKey": {
+      "type": "string",
+      "pattern": "^youtube:[A-Za-z0-9_-]{11}$"
+    },
+    "progressBase": {
+      "type": "object",
+      "required": [
+        "status",
+        "job_id",
+        "video_key",
+        "stage",
+        "progress_percent",
+        "eta_seconds",
+        "eta_confidence",
+        "retry_after_ms",
+        "updated_at"
+      ],
+      "properties": {
+        "job_id": { "$ref": "#/$defs/jobId" },
+        "video_key": { "$ref": "#/$defs/videoKey" },
+        "progress_percent": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 99
+        },
+        "eta_seconds": {
+          "type": ["integer", "null"],
+          "minimum": 0,
+          "maximum": 86400
+        },
+        "eta_confidence": {
+          "type": ["string", "null"],
+          "enum": ["low", "medium", "high", null]
+        },
+        "retry_after_ms": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 30000
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "queued": {
+      "allOf": [
+        { "$ref": "#/$defs/progressBase" },
+        {
+          "properties": {
+            "status": { "const": "queued" },
+            "stage": { "const": "queued" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "processing": {
+      "allOf": [
+        { "$ref": "#/$defs/progressBase" },
+        {
+          "properties": {
+            "status": { "const": "processing" },
+            "stage": {
+              "enum": [
+                "media_preparation",
+                "audio_analysis",
+                "visual_analysis",
+                "description_generation",
+                "speech_synthesis",
+                "validation"
+              ]
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "ready": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "job_id",
+        "video_key",
+        "progress_percent",
+        "manifest_id",
+        "revision",
+        "updated_at"
+      ],
+      "properties": {
+        "status": { "const": "ready" },
+        "job_id": {
+          "oneOf": [
+            { "$ref": "#/$defs/jobId" },
+            { "type": "null" }
+          ]
+        },
+        "video_key": { "$ref": "#/$defs/videoKey" },
+        "progress_percent": { "const": 100 },
+        "manifest_id": { "type": "string", "minLength": 1 },
+        "revision": { "type": "integer", "minimum": 0 },
+        "updated_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "failed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "job_id",
+        "video_key",
+        "progress_percent",
+        "error",
+        "updated_at"
+      ],
+      "properties": {
+        "status": { "const": "failed" },
+        "job_id": { "$ref": "#/$defs/jobId" },
+        "video_key": { "$ref": "#/$defs/videoKey" },
+        "progress_percent": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 99
+        },
+        "error": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "retryable"],
+          "properties": {
+            "code": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+            "retryable": { "type": "boolean" }
+          }
+        },
+        "updated_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

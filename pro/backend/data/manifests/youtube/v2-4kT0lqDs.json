@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.1",
+  "manifest_id": "youtube:v2-4kT0lqDs:r1",
+  "revision": 1,
+  "video": {
+    "provider": "youtube",
+    "video_id": "v2-4kT0lqDs",
+    "duration_ms": 258926
+  },
+  "voice": {
+    "voice_id": "ko-KR-poc",
+    "format": "audio/wav",
+    "sample_rate_hz": 24000
+  },
+  "playback": {
+    "duck_factor": 0.35,
+    "preload_count": 3,
+    "lookahead_ms": 500,
+    "late_tolerance_ms": 250,
+    "auto_pause_default": true,
+    "max_extended_duration_ms": 8000,
+    "min_extended_interval_ms": 15000
+  },
+  "segments": [
+    {
+      "id": "seg-001",
+      "mode": "overlay",
+      "trigger_ms": 300,
+      "text": "제1차 세계대전, 참호에서의 요리.",
+      "importance": "normal",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/9376c4dfed926698d9ff850bc63299d506f8c21763a6e54ddefd105f41d93a6e.wav",
+        "duration_ms": 2675,
+        "sha256": "9376c4dfed926698d9ff850bc63299d506f8c21763a6e54ddefd105f41d93a6e"
+      },
+      "deadline_ms": 3780
+    },
+    {
+      "id": "seg-002",
+      "mode": "extended",
+      "trigger_ms": 5780,
+      "text": "1917년 여름, 솜 전선.",
+      "importance": "high",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/03e267db77eaeeb4812ad5e35c9037428b67dada1253ae7bdecd55e28de2a65c.wav",
+        "duration_ms": 2225,
+        "sha256": "03e267db77eaeeb4812ad5e35c9037428b67dada1253ae7bdecd55e28de2a65c"
+      }
+    },
+    {
+      "id": "seg-003",
+      "mode": "overlay",
+      "trigger_ms": 18780,
+      "text": "스미스가 불을 피우려고 참호 바닥을 곡괭이로 판다.",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/7b14f86c400b0e84f3408ecacee3684bd1141afed825a839298ff5d760216683.wav",
+        "duration_ms": 3975,
+        "sha256": "7b14f86c400b0e84f3408ecacee3684bd1141afed825a839298ff5d760216683"
+      },
+      "deadline_ms": 26620
+    },
+    {
+      "id": "seg-004",
+      "mode": "overlay",
+      "trigger_ms": 85160,
+      "text": "스미스가 감자를 잘게 썬다.",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/4aabec06719a17f08d7c246bda9e9e33e00c073b81a9a1b8fa3d32e039f85cc9.wav",
+        "duration_ms": 2062,
+        "sha256": "4aabec06719a17f08d7c246bda9e9e33e00c073b81a9a1b8fa3d32e039f85cc9"
+      },
+      "deadline_ms": 88900
+    },
+    {
+      "id": "seg-005",
+      "mode": "overlay",
+      "trigger_ms": 167580,
+      "text": "스미스가 스튜를 저은 뒤 남은 통조림 쇠고기를 넣고 계속 끓인다.",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/266d4b55f220723cf415c7cfd46de147b0e5f757e6d6f0223be4eb783305d742.wav",
+        "duration_ms": 5025,
+        "sha256": "266d4b55f220723cf415c7cfd46de147b0e5f757e6d6f0223be4eb783305d742"
+      },
+      "deadline_ms": 187940
+    },
+    {
+      "id": "seg-006",
+      "mode": "overlay",
+      "trigger_ms": 194360,
+      "text": "숟가락을 편다",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/093c6cc0b452188eedfdd9e55e2a0dad18f09e3a67db4bd90ab7a280cfa246a8.wav",
+        "duration_ms": 1075,
+        "sha256": "093c6cc0b452188eedfdd9e55e2a0dad18f09e3a67db4bd90ab7a280cfa246a8"
+      },
+      "deadline_ms": 196720
+    },
+    {
+      "id": "seg-007",
+      "mode": "overlay",
+      "trigger_ms": 206820,
+      "text": "소스 넣는다",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/428ce53ccd7cbbc13e872e8a3ac11cef7648e6e1b91f2065e77e7dbce1c44741.wav",
+        "duration_ms": 875,
+        "sha256": "428ce53ccd7cbbc13e872e8a3ac11cef7648e6e1b91f2065e77e7dbce1c44741"
+      },
+      "deadline_ms": 208360
+    },
+    {
+      "id": "seg-008",
+      "mode": "overlay",
+      "trigger_ms": 237000,
+      "text": "스미스가 스튜를 연달아 떠먹고, 화면이 어두워진다.",
+      "importance": "normal",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/f40878687bbc8ff6d347181d163958e99a8f386a2f86d0dac4db90ce131c029d.wav",
+        "duration_ms": 3862,
+        "sha256": "f40878687bbc8ff6d347181d163958e99a8f386a2f86d0dac4db90ce131c029d"
+      },
+      "deadline_ms": 258260
+    }
+  ]
+}

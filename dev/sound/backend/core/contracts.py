@@ -12,7 +12,7 @@ import re
 from typing import Any, Mapping, Optional
 
 
-SCHEMA_VERSION = "1.0"
+SCHEMA_VERSION = "1.1"
 DURATION_TOLERANCE_MS = 1_000
 
 PROVIDER_RE = re.compile(r"^[a-z][a-z0-9_-]{0,31}$")
@@ -164,13 +164,23 @@ def validate_manifest(
         "playback.late_tolerance_ms",
         minimum=0,
     )
+    auto_pause_default = playback.get("auto_pause_default")
+    if not isinstance(auto_pause_default, bool):
+        raise ContractValidationError("boolean이어야 합니다", "playback.auto_pause_default")
+    max_extended_duration_ms = _integer(
+        playback, "max_extended_duration_ms", "playback.max_extended_duration_ms", minimum=1
+    )
+    min_extended_interval_ms = _integer(
+        playback, "min_extended_interval_ms", "playback.min_extended_interval_ms", minimum=0
+    )
 
     segments = manifest.get("segments")
     if not isinstance(segments, list):
         raise ContractValidationError("배열이어야 합니다", "segments")
 
-    previous_start = -1
-    previous_end = -1
+    previous_trigger_ms = -1
+    previous_active_end_ms = -1
+    previous_extended_trigger_ms: Optional[int] = None
     segment_ids: set[str] = set()
     for index, raw_segment in enumerate(segments):
         prefix = f"segments[{index}]"
@@ -180,27 +190,32 @@ def validate_manifest(
             raise ContractValidationError("중복 ID입니다", f"{prefix}.id")
         segment_ids.add(segment_id)
 
-        start_ms = _integer(segment, "start_ms", f"{prefix}.start_ms", minimum=0)
-        end_ms = _integer(segment, "end_ms", f"{prefix}.end_ms", minimum=1)
-        if start_ms >= end_ms:
+        mode = _string(segment, "mode", f"{prefix}.mode")
+        if mode not in {"overlay", "extended"}:
             raise ContractValidationError(
-                "start_ms보다 커야 합니다", f"{prefix}.end_ms"
+                "overlay 또는 extended여야 합니다", f"{prefix}.mode"
             )
-        if end_ms > duration_ms:
+
+        trigger_ms = _integer(segment, "trigger_ms", f"{prefix}.trigger_ms", minimum=0)
+        if trigger_ms > duration_ms:
             raise ContractValidationError(
-                "영상 길이를 넘을 수 없습니다", f"{prefix}.end_ms"
+                "영상 길이를 넘을 수 없습니다", f"{prefix}.trigger_ms"
             )
-        if start_ms < previous_start:
+        if trigger_ms < previous_trigger_ms:
             raise ContractValidationError(
-                "start_ms 오름차순이어야 합니다", f"{prefix}.start_ms"
+                "trigger_ms 오름차순이어야 합니다", f"{prefix}.trigger_ms"
             )
-        if previous_end >= 0 and start_ms < previous_end:
+        if previous_active_end_ms >= 0 and trigger_ms < previous_active_end_ms:
             raise ContractValidationError(
-                "이전 세그먼트와 겹칩니다", f"{prefix}.start_ms"
+                "이전 세그먼트와 겹칩니다", f"{prefix}.trigger_ms"
             )
-        previous_start, previous_end = start_ms, end_ms
 
         _string(segment, "text", f"{prefix}.text")
+        importance = _string(segment, "importance", f"{prefix}.importance")
+        if importance not in {"normal", "high"}:
+            raise ContractValidationError(
+                "normal 또는 high여야 합니다", f"{prefix}.importance"
+            )
         source = _string(segment, "source", f"{prefix}.source")
         if source not in {"ocr", "vlm"}:
             raise ContractValidationError("ocr 또는 vlm이어야 합니다", f"{prefix}.source")
@@ -225,10 +240,52 @@ def validate_manifest(
         clip_duration_ms = _integer(
             audio, "duration_ms", f"{prefix}.audio.duration_ms", minimum=1
         )
-        if clip_duration_ms > end_ms - start_ms:
-            raise ContractValidationError(
-                "해설 구간 길이를 넘을 수 없습니다",
-                f"{prefix}.audio.duration_ms",
-            )
+
+        if mode == "overlay":
+            deadline_ms = segment.get("deadline_ms")
+            if isinstance(deadline_ms, bool) or not isinstance(deadline_ms, int):
+                raise ContractValidationError(
+                    "overlay는 정수 deadline_ms가 필요합니다", f"{prefix}.deadline_ms"
+                )
+            if deadline_ms <= trigger_ms:
+                raise ContractValidationError(
+                    "trigger_ms보다 커야 합니다", f"{prefix}.deadline_ms"
+                )
+            if deadline_ms > duration_ms:
+                raise ContractValidationError(
+                    "영상 길이를 넘을 수 없습니다", f"{prefix}.deadline_ms"
+                )
+            if clip_duration_ms > deadline_ms - trigger_ms:
+                raise ContractValidationError(
+                    "deadline 안에 끝나야 합니다", f"{prefix}.audio.duration_ms"
+                )
+            active_end_ms = deadline_ms
+        else:
+            if "deadline_ms" in segment:
+                raise ContractValidationError(
+                    "extended는 deadline_ms를 포함하지 않습니다", f"{prefix}.deadline_ms"
+                )
+            if importance != "high":
+                raise ContractValidationError(
+                    "extended는 importance=high만 허용합니다", f"{prefix}.importance"
+                )
+            if clip_duration_ms > max_extended_duration_ms:
+                raise ContractValidationError(
+                    f"{max_extended_duration_ms}ms를 넘을 수 없습니다",
+                    f"{prefix}.audio.duration_ms",
+                )
+            if (
+                previous_extended_trigger_ms is not None
+                and trigger_ms - previous_extended_trigger_ms < min_extended_interval_ms
+            ):
+                raise ContractValidationError(
+                    f"extended 간격은 {min_extended_interval_ms}ms 이상이어야 합니다",
+                    f"{prefix}.trigger_ms",
+                )
+            previous_extended_trigger_ms = trigger_ms
+            active_end_ms = trigger_ms + clip_duration_ms
+
+        previous_trigger_ms = trigger_ms
+        previous_active_end_ms = active_end_ms
 
     return manifest

@@ -32,8 +32,9 @@ import json
 import logging
 import sys
 import tempfile
+import time
 from pathlib import Path
-from typing import Optional
+from typing import Callable, Optional
 
 import config
 from adapters.base import ModelAdapter
@@ -56,6 +57,38 @@ log.setLevel(logging.INFO)
 
 class PipelineError(RuntimeError):
     pass
+
+
+# stage, progress_percent(0~99), eta_seconds(있으면), eta_confidence(있으면)
+ProgressCallback = Callable[[str, int, Optional[int], Optional[str]], None]
+
+
+def _progress_reporter(progress_cb: Optional[ProgressCallback]) -> Callable[[str, float], None]:
+    """연동규격 6.3(작업 진행률·ETA)을 실제 실행에 연결한다.
+
+    gap 개수는 영상마다 달라 단계별 실측 배분은 어렵지만, "media_preparation
+    5% -> audio_analysis 20% -> gap 처리 20~90% -> validation 90~99%"로 근사해도
+    폴링 UX(단조 증가, 대략적인 ETA)에는 충분하다. ETA는 지금까지 걸린 시간을
+    진행률로 역산한 값이라 초반에는 부정확할 수 있어 eta_confidence로 신뢰도를
+    함께 알린다.
+    """
+    started_at = time.monotonic()
+
+    def report(stage: str, fraction: float) -> None:
+        if progress_cb is None:
+            return
+        fraction = max(0.0, min(fraction, 0.99))
+        percent = round(fraction * 100)
+        if fraction > 0.02:
+            elapsed = time.monotonic() - started_at
+            eta_seconds = max(round(elapsed * (1 - fraction) / fraction), 0)
+            eta_confidence = "high" if fraction >= 0.5 else "medium" if fraction >= 0.15 else "low"
+        else:
+            eta_seconds = None
+            eta_confidence = None
+        progress_cb(stage, percent, eta_seconds, eta_confidence)
+
+    return report
 
 
 @contextlib.contextmanager
@@ -88,11 +121,15 @@ def _context_before(speech_segments, start_ms: int) -> Optional[str]:
 
 
 def _shrink_and_resynthesize(
-    adapter: ModelAdapter, frame_paths, context: Optional[str], gap_dur_ms: int, max_chars: int
+    adapter: ModelAdapter, frame_paths, context: Optional[str], target_max_ms: int, max_chars: int
 ):
     """소스가 vlm(생성 서술)일 때만 쓸 수 있다 — OCR 원문은 요약하지 않는다(6.4).
     구간을 넘기면 속도로 맞추지 않고 글자 수를 줄여 다시 만든다(4.2). 시도 전부를
-    describe_attempts 로 돌려줘서 script.json 에 남길 수 있게 한다."""
+    describe_attempts 로 돌려줘서 script.json 에 남길 수 있게 한다.
+
+    target_max_ms 는 overlay 자연 공백과 extended 상한 중 더 넉넉한 쪽이다 —
+    이 함수는 "재생 가능한 후보를 만드는" 역할만 하고, 실제로 overlay/extended
+    어느 모드에 들어갈지는 호출자가 다시 판정한다."""
     describe_candidates = _pick_frames(frame_paths, config.MAX_DESCRIBE_FRAMES_PER_GAP)
     shortened = max_chars
     attempts = []
@@ -104,7 +141,7 @@ def _shrink_and_resynthesize(
             attempts.append({"text": text, "confidence": result.confidence, "max_chars": shortened, "rejected_reason": "text_invalid"})
             continue
         wav_bytes, duration_ms = tts.synthesize(adapter, text)
-        if duration_ms <= gap_dur_ms:
+        if duration_ms <= target_max_ms:
             attempts.append({"text": text, "confidence": result.confidence, "max_chars": shortened, "rejected_reason": None})
             return text, wav_bytes, duration_ms, attempts
         attempts.append({"text": text, "confidence": result.confidence, "max_chars": shortened, "rejected_reason": "still_too_long"})
@@ -121,15 +158,18 @@ def run_pipeline(
     language: str = "ko",
     srt_path: Optional[str] = None,
     runs_dir: Optional[Path] = None,
+    progress_cb: Optional[ProgressCallback] = None,
 ) -> dict:
     # revision 은 catalog 상태와 무관하므로 먼저 정해서 run 디렉터리부터 만든다 —
     # 그래야 오디오를 한 번만 추출해서 그 자리에 바로 영구 보관할 수 있다.
     revision = repository.next_revision(provider, video_id)
     run_dir = Path(runs_dir or config.PIPELINE_RUNS_DIR) / provider / video_id / f"r{revision}"
     run_dir.mkdir(parents=True, exist_ok=True)
+    report = _progress_reporter(progress_cb)
 
     with _run_log_file(run_dir / "pipeline.log"):
         log.info("실행 디렉터리: %s", run_dir)
+        report("media_preparation", 0.02)
 
         audio_path = str(run_dir / "audio.wav")
         media.extract_audio(video_path, audio_path)
@@ -152,10 +192,12 @@ def run_pipeline(
                 f"실측 {duration_ms}ms, 등록 {video.duration_ms}ms"
             )
 
+        report("audio_analysis", 0.05)
         log.info("M2: 전사 및 무음 구간 산출 시작")
         transcript = adapter.transcribe(audio_path, language=language)
         gaps = build_gaps(transcript, duration_ms)
         log.info("M2: gap %d개 확정", len(gaps))
+        report("audio_analysis", 0.20)
 
         speech_log = [
             {"start_ms": round(s.start * 1000), "end_ms": round(s.end * 1000), "text": s.text}
@@ -180,6 +222,23 @@ def run_pipeline(
         ocr_log = []
         prior_segment_texts: list[str] = []
         skipped = 0
+        gaps_total = len(gaps) or 1
+        last_extended_trigger_ms: Optional[int] = None
+
+        def _fits_overlay(duration_ms_: int, gap_dur_ms_: int) -> bool:
+            return duration_ms_ + config.MODE_SAFETY_MARGIN_MS <= gap_dur_ms_
+
+        def _fits_extended(duration_ms_: int, importance_: str, trigger_ms_: int) -> bool:
+            if importance_ != "high":
+                return False
+            if duration_ms_ > config.MAX_EXTENDED_DURATION_MS:
+                return False
+            if (
+                last_extended_trigger_ms is not None
+                and trigger_ms_ - last_extended_trigger_ms < config.MIN_EXTENDED_INTERVAL_MS
+            ):
+                return False
+            return True
 
         for index, gap in enumerate(gaps):
             frame_paths = frames_by_gap.get(index, [])
@@ -204,69 +263,99 @@ def run_pipeline(
                 entry.update(status="skipped", skip_reason=trace.skip_reason)
                 script_log.append(entry)
                 skipped += 1
+                report(
+                    "description_generation" if trace.describe_attempts else "visual_analysis",
+                    0.20 + 0.70 * (index + 1) / gaps_total,
+                )
                 continue
 
             log.info(
                 "gap[%d] 채택 source=%s len=%d: %s", index, decision.source, len(decision.text), decision.text
             )
+            # 연동규격 6.1 예시와 동일한 POC 휴리스틱: VLM 서술(대사가 다루지 않는
+            # 장면 정보)은 high, OCR 원문(보조 정보)은 normal로 본다.
+            importance = "high" if decision.source == "vlm" else "normal"
 
             gap_dur_ms = gap.end_ms - gap.start_ms
+            report(
+                "description_generation" if decision.source == "vlm" else "visual_analysis",
+                0.20 + 0.70 * (index + 0.5) / gaps_total,
+            )
             wav_bytes, duration_ms_clip = tts.synthesize(adapter, decision.text)
-            log.info("gap[%d] TTS %dms (목표 %dms 이하)", index, duration_ms_clip, gap_dur_ms)
+            report("speech_synthesis", 0.20 + 0.70 * (index + 0.9) / gaps_total)
+            log.info("gap[%d] TTS %dms (자연 공백 %dms)", index, duration_ms_clip, gap_dur_ms)
 
-            if duration_ms_clip > gap_dur_ms:
-                if decision.source != "vlm":
-                    log.info("gap[%d] skip (tts_overflow_ocr) — OCR 원문은 요약할 수 없다", index)
-                    entry.update(status="skipped", skip_reason="tts_overflow_ocr", source=decision.source)
-                    script_log.append(entry)
-                    skipped += 1
-                    continue
-                log.info("gap[%d] TTS 초과 -> M4 축약 재시도", index)
+            mode: Optional[str] = None
+            if _fits_overlay(duration_ms_clip, gap_dur_ms):
+                mode = "overlay"
+            elif _fits_extended(duration_ms_clip, importance, gap.start_ms):
+                mode = "extended"
+            elif decision.source == "vlm":
+                log.info("gap[%d] 자연 공백/extended 조건 미충족 -> M4 축약 재시도", index)
+                # importance=high(vlm)에서만 오는 경로이므로 overlay 자연 공백과
+                # extended 상한 중 더 넉넉한 쪽까지는 시도해 본다.
+                target_max_ms = max(gap_dur_ms, config.MAX_EXTENDED_DURATION_MS)
                 text, wav_bytes, duration_ms_clip, shrink_attempts = _shrink_and_resynthesize(
-                    adapter, frame_paths, context, gap_dur_ms, gap.max_chars
+                    adapter, frame_paths, context, target_max_ms, gap.max_chars
                 )
                 entry["describe_attempts"].extend(shrink_attempts)
-                if text is None:
-                    log.info("gap[%d] skip (tts_overflow_unshrinkable)", index)
-                    entry.update(status="skipped", skip_reason="tts_overflow_unshrinkable", source=decision.source)
-                    script_log.append(entry)
-                    skipped += 1
-                    continue
-                decision.text = text
+                if text is not None:
+                    decision.text = text
+                    if _fits_overlay(duration_ms_clip, gap_dur_ms):
+                        mode = "overlay"
+                    elif _fits_extended(duration_ms_clip, importance, gap.start_ms):
+                        mode = "extended"
+
+            if mode is None:
+                skip_reason = "tts_overflow_ocr" if decision.source != "vlm" else "tts_overflow_unshrinkable"
+                log.info("gap[%d] skip (%s)", index, skip_reason)
+                entry.update(status="skipped", skip_reason=skip_reason, source=decision.source)
+                script_log.append(entry)
+                skipped += 1
+                report("speech_synthesis", 0.20 + 0.70 * (index + 1) / gaps_total)
+                continue
 
             clip_hash = repository.publish_audio(wav_bytes)
             prior_segment_texts.append(decision.text)
             segment_id = f"seg-{len(segments) + 1:03d}"
-            segments.append(
-                {
-                    "id": segment_id,
-                    "start_ms": gap.start_ms,
-                    "end_ms": gap.end_ms,
-                    "text": decision.text,
-                    "source": decision.source,
-                    "confidence": "high",
-                    "audio": {
-                        "path": f"/v1/audio/{clip_hash}.wav",
-                        "duration_ms": duration_ms_clip,
-                        "sha256": clip_hash,
-                    },
-                }
-            )
+            segment = {
+                "id": segment_id,
+                "mode": mode,
+                "trigger_ms": gap.start_ms,
+                "text": decision.text,
+                "importance": importance,
+                "source": decision.source,
+                "confidence": "high",
+                "audio": {
+                    "path": f"/v1/audio/{clip_hash}.wav",
+                    "duration_ms": duration_ms_clip,
+                    "sha256": clip_hash,
+                },
+            }
+            if mode == "overlay":
+                segment["deadline_ms"] = gap.end_ms
+            else:
+                last_extended_trigger_ms = gap.start_ms
+            segments.append(segment)
             entry.update(
                 status="published",
                 segment_id=segment_id,
+                mode=mode,
+                importance=importance,
                 source=decision.source,
                 confidence=decision.confidence,
                 text=decision.text,
                 audio_duration_ms=duration_ms_clip,
             )
             script_log.append(entry)
+            report("speech_synthesis", 0.20 + 0.70 * (index + 1) / gaps_total)
 
         _write_json(run_dir / "ocr.json", ocr_log)
         _write_json(run_dir / "script.json", script_log)
+        report("validation", 0.95)
 
         manifest = {
-            "schema_version": "1.0",
+            "schema_version": "1.1",
             "manifest_id": f"{provider}:{video_id}:r{revision}",
             "revision": revision,
             "video": {
@@ -284,12 +373,16 @@ def run_pipeline(
                 "preload_count": config.PLAYBACK_PRELOAD_COUNT,
                 "lookahead_ms": config.PLAYBACK_LOOKAHEAD_MS,
                 "late_tolerance_ms": config.PLAYBACK_LATE_TOLERANCE_MS,
+                "auto_pause_default": config.AUTO_PAUSE_DEFAULT,
+                "max_extended_duration_ms": config.MAX_EXTENDED_DURATION_MS,
+                "min_extended_interval_ms": config.MIN_EXTENDED_INTERVAL_MS,
             },
             "segments": segments,
         }
 
         record = repository.publish_manifest(manifest)
         log.info("게시 완료: %s (%d/%d 게시)", record.data["manifest_id"], len(segments), len(gaps))
+        report("validation", 0.99)
 
         if srt_path:
             srt_text = build_srt(speech_log, segments)

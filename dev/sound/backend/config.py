@@ -57,6 +57,12 @@ if _runs_dir_raw:
 else:
     PIPELINE_RUNS_DIR = BACKEND_DIR / "runs"
 
+# FE(VOICE_BRIDGE_FE_GITHUB_UPLOAD_v0.1.0)의 src/shared/config/constants.ts와
+# extension/manifest.json host_permissions가 http://localhost:8000 을 그대로
+# 하드코딩하고 있다(BACKEND_INTEGRATION.md 1장) — 확장 쪽 두 파일을 함께 바꾸지
+# 않는 한 백엔드가 이 포트로 떠야 실제로 연결된다.
+BACKEND_PORT = _env_int("VOICE_BRIDGE_PORT", 8000)
+
 JOB_RETRY_AFTER_MS = _env_int("VOICE_BRIDGE_RETRY_AFTER_MS", 1500)
 MAX_REQUEST_BYTES = _env_int("VOICE_BRIDGE_MAX_REQUEST_BYTES", 16 * 1024 * 1024)
 
@@ -141,6 +147,28 @@ SHORTEN_MAX_CHARS_RATIO = 0.7
 MAX_OCR_FRAMES_PER_GAP = 12
 MAX_DESCRIBE_FRAMES_PER_GAP = 6
 
+# 정지 화면(자막 없는 배경, 멈춘 장면 등)이 이어지면 초당 3장씩 찍은 프레임이
+# 사실상 같은 그림을 여러 장 중복으로 담게 된다. 직전에 채택한 프레임과
+# 그레이스케일 평균 밝기 차이(0~1)가 이 값 미만이면 "거의 안 바뀐 프레임"으로
+# 보고 API 호출 대상에서 제외한다 — 호출 횟수 자체를 줄이는 게 목적이라
+# VISION_MAX_DIMENSION_PX/VISION_JPEG_QUALITY(페이로드 축소)와는 별개의 절감 수단이다.
+FRAME_SIMILARITY_DIFF_THRESHOLD = 0.02
+
 # M4: 서술 프롬프트에 넣는 직전 대사 컨텍스트를 몇 문장까지 줄지. 한 줄만 주면
 # "아까 이미 말한 정보"를 모델이 재확인하지 못해 같은 내용을 다시 서술하기 쉽다.
 DESCRIBE_CONTEXT_SPEECH_SEGMENTS = 3
+
+# ---- 연동규격 v1.2: M5 재생 모드(overlay/extended) 판정, 작업 진행률 계약 ----
+# natural_window_ms(=gap 길이) >= audio.duration_ms + 이 값 이상이어야 overlay로
+# 확정한다(4.2). 부족하면 importance == high 인 후보만 extended로 넘어간다.
+MODE_SAFETY_MARGIN_MS = 300
+MAX_EXTENDED_DURATION_MS = 8_000       # extended 한 번의 최대 해설 길이 (부록 B)
+MIN_EXTENDED_INTERVAL_MS = 15_000      # extended 세그먼트 사이 최소 간격 (부록 B)
+AUTO_PAUSE_DEFAULT = True              # Side Panel '자동 일시정지' 기본값 (7.7)
+
+# Vision API(OCR/서술) 호출 비용 절감: runs/ 에 남는 원본 프레임은 그대로 두고,
+# API 로 보낼 때만 이 크기 이하로 축소·재압축한다 (긴 변 기준, 원본이 더 작으면
+# 확대하지 않는다). OpenAI 비전 모델은 해상도에 비례해 타일 단위로 과금하므로
+# 화질을 인식에 지장 없는 선까지만 낮추면 토큰 비용이 크게 줄어든다.
+VISION_MAX_DIMENSION_PX = 1280
+VISION_JPEG_QUALITY = 82

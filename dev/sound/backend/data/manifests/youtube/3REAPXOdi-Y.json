@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.1",
+  "manifest_id": "youtube:3REAPXOdi-Y:r2",
+  "revision": 2,
+  "video": {
+    "provider": "youtube",
+    "video_id": "3REAPXOdi-Y",
+    "duration_ms": 362974
+  },
+  "voice": {
+    "voice_id": "ko-KR-poc",
+    "format": "audio/wav",
+    "sample_rate_hz": 24000
+  },
+  "playback": {
+    "duck_factor": 0.35,
+    "preload_count": 3,
+    "lookahead_ms": 500,
+    "late_tolerance_ms": 250,
+    "auto_pause_default": true,
+    "max_extended_duration_ms": 8000,
+    "min_extended_interval_ms": 15000
+  },
+  "segments": [
+    {
+      "id": "seg-001",
+      "mode": "overlay",
+      "trigger_ms": 28220,
+      "text": "```\n넷플릭스\n```",
+      "importance": "normal",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/3da16d82ebe4678c8707aadbc9cc2d30b88876a917165c12b2df18f1e02057a8.wav",
+        "duration_ms": 1138,
+        "sha256": "3da16d82ebe4678c8707aadbc9cc2d30b88876a917165c12b2df18f1e02057a8"
+      },
+      "deadline_ms": 33740
+    },
+    {
+      "id": "seg-002",
+      "mode": "overlay",
+      "trigger_ms": 37980,
+      "text": "두 사람이 요리 중이다.",
+      "importance": "high",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/1ae12d67d0eb2d5cc7d060219f60acb2e306bdae004a9a47900a7e01a05198c3.wav",
+        "duration_ms": 1738,
+        "sha256": "1ae12d67d0eb2d5cc7d060219f60acb2e306bdae004a9a47900a7e01a05198c3"
+      },
+      "deadline_ms": 40840
+    },
+    {
+      "id": "seg-003",
+      "mode": "overlay",
+      "trigger_ms": 50640,
+      "text": "```\n```",
+      "importance": "normal",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/0d1397b40ebfe6aa654ae36671c4f2ff97d5c8f04ca36fd73ad932cb6870413d.wav",
+        "duration_ms": 500,
+        "sha256": "0d1397b40ebfe6aa654ae36671c4f2ff97d5c8f04ca36fd73ad932cb6870413d"
+      },
+      "deadline_ms": 52600
+    },
+    {
+      "id": "seg-004",
+      "mode": "overlay",
+      "trigger_ms": 70080,
+      "text": "요리하는 손",
+      "importance": "high",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/a0e3e8d6267d983519f0e227366a17d0118f9054a3e0a3621fb0491658ae8a4b.wav",
+        "duration_ms": 888,
+        "sha256": "a0e3e8d6267d983519f0e227366a17d0118f9054a3e0a3621fb0491658ae8a4b"
+      },
+      "deadline_ms": 72040
+    },
+    {
+      "id": "seg-005",
+      "mode": "overlay",
+      "trigger_ms": 105540,
+      "text": "박대를 굽는 중",
+      "importance": "high",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/43af044422eb69e7797d727ebcd32e5424f0304190ef6228354a8b5a20f228c7.wav",
+        "duration_ms": 1138,
+        "sha256": "43af044422eb69e7797d727ebcd32e5424f0304190ef6228354a8b5a20f228c7"
+      },
+      "deadline_ms": 107160
+    },
+    {
+      "id": "seg-006",
+      "mode": "overlay",
+      "trigger_ms": 142960,
+      "text": "소스 붓는 장면",
+      "importance": "high",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/205238a103689101777326002fb5c6483376af6acd0ced269436a7b2e9ced403.wav",
+        "duration_ms": 1050,
+        "sha256": "205238a103689101777326002fb5c6483376af6acd0ced269436a7b2e9ced403"
+      },
+      "deadline_ms": 144660
+    },
+    {
+      "id": "seg-007",
+      "mode": "overlay",
+      "trigger_ms": 151520,
+      "text": "주방에서 요리 준비 중",
+      "importance": "high",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/0ceac1dea3553c263545e5e628f081437af71a33d69ffe9a3e7a6b19e6e22879.wav",
+        "duration_ms": 1688,
+        "sha256": "0ceac1dea3553c263545e5e628f081437af71a33d69ffe9a3e7a6b19e6e22879"
+      },
+      "deadline_ms": 154380
+    },
+    {
+      "id": "seg-008",
+      "mode": "overlay",
+      "trigger_ms": 200360,
+      "text": "두 요리사가 요리 중이다.",
+      "importance": "high",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/c65b4f8b38390a732b91d864816459cd23e37e7a61a87be609966acef747c20e.wav",
+        "duration_ms": 1888,
+        "sha256": "c65b4f8b38390a732b91d864816459cd23e37e7a61a87be609966acef747c20e"
+      },
+      "deadline_ms": 204120
+    },
+    {
+      "id": "seg-009",
+      "mode": "overlay",
+      "trigger_ms": 245080,
+      "text": "심사위원이 웃으며 말한다.",
+      "importance": "high",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/97172771b854dbc2e8f6e42a360d7bed7b70672629b562416591e04e9e457175.wav",
+        "duration_ms": 1912,
+        "sha256": "97172771b854dbc2e8f6e42a360d7bed7b70672629b562416591e04e9e457175"
+      },
+      "deadline_ms": 248980
+    },
+    {
+      "id": "seg-010",
+      "mode": "overlay",
+      "trigger_ms": 257600,
+      "text": "요리와 밥이 놓인 테이블",
+      "importance": "high",
+      "source": "vlm",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/d693e4eb7f508ec22c0b0b83ccde0b1943d846c3daaea3498e3ea80d86fc1763.wav",
+        "duration_ms": 1875,
+        "sha256": "d693e4eb7f508ec22c0b0b83ccde0b1943d846c3daaea3498e3ea80d86fc1763"
+      },
+      "deadline_ms": 260400
+    },
+    {
+      "id": "seg-011",
+      "mode": "overlay",
+      "trigger_ms": 285800,
+      "text": "바람?",
+      "importance": "normal",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/6300072ca8193f5686f480f7bfed97437f8dbe6c33bbd73aa922bc0f3dc7f209.wav",
+        "duration_ms": 488,
+        "sha256": "6300072ca8193f5686f480f7bfed97437f8dbe6c33bbd73aa922bc0f3dc7f209"
+      },
+      "deadline_ms": 288060
+    },
+    {
+      "id": "seg-012",
+      "mode": "overlay",
+      "trigger_ms": 318320,
+      "text": "빈 문자열입니다.",
+      "importance": "normal",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/924d8dbe6d0c42a24920137fd7398979855d104f4ee95718c5f0c7dd0a1ab667.wav",
+        "duration_ms": 1250,
+        "sha256": "924d8dbe6d0c42a24920137fd7398979855d104f4ee95718c5f0c7dd0a1ab667"
+      },
+      "deadline_ms": 325060
+    },
+    {
+      "id": "seg-013",
+      "mode": "overlay",
+      "trigger_ms": 341680,
+      "text": "반찬술사",
+      "importance": "normal",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/9a998863c9d2f8968d0854ab97684e09a555542893a1b0a8245ad38cd05f2f04.wav",
+        "duration_ms": 688,
+        "sha256": "9a998863c9d2f8968d0854ab97684e09a555542893a1b0a8245ad38cd05f2f04"
+      },
+      "deadline_ms": 361280
+    }
+  ]
+}

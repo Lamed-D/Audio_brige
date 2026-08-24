@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.1",
+  "manifest_id": "youtube:broken:r1",
+  "revision": 1,
+  "video": {
+    "provider": "youtube",
+    "video_id": "broken",
+    "duration_ms": 120000
+  },
+  "voice": {
+    "voice_id": "ko-KR-poc",
+    "format": "audio/wav",
+    "sample_rate_hz": 24000
+  },
+  "playback": {
+    "duck_factor": 0.35,
+    "preload_count": 3,
+    "lookahead_ms": 500,
+    "late_tolerance_ms": 250,
+    "auto_pause_default": true,
+    "max_extended_duration_ms": 8000,
+    "min_extended_interval_ms": 15000
+  },
+  "segments": [
+    {
+      "id": "seg-broken",
+      "mode": "overlay",
+      "trigger_ms": 12400,
+      "deadline_ms": 16200,
+      "text": "이 음성은 허용된 구간보다 길다",
+      "importance": "normal",
+      "source": "ocr",
+      "confidence": "high",
+      "audio": {
+        "path": "/v1/audio/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.wav",
+        "duration_ms": 5000,
+        "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      }
+    }
+  ]
+}

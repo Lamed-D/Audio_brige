@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "videos": [
     {
       "provider": "youtube",
@@ -11,6 +11,12 @@
       "provider": "youtube",
       "video_id": "5e5fp21dqWA",
       "duration_ms": 319158,
+      "enabled": true
+    },
+    {
+      "provider": "youtube",
+      "video_id": "3REAPXOdi-Y",
+      "duration_ms": 362974,
       "enabled": true
     }
   ]

@@ -84,7 +84,9 @@ def test_run_pipeline_publishes_playable_manifest(tmp_path: Path, synthetic_vide
     segment = manifest["segments"][0]
     assert segment["text"]
     assert segment["source"] == "vlm"
-    assert segment["audio"]["duration_ms"] <= segment["end_ms"] - segment["start_ms"]
+    assert segment["mode"] == "overlay"
+    assert segment["importance"] == "high"
+    assert segment["audio"]["duration_ms"] <= segment["deadline_ms"] - segment["trigger_ms"]
 
     # /v1 API 가 실제로 서비스할 때 쓰는 것과 같은 읽기 경로로 재검증한다.
     record = repository.find_manifest("youtube", "test1")

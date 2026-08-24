@@ -1,0 +1,443 @@
+[
+  {
+    "gap_index": 0,
+    "start_ms": 28220,
+    "end_ms": 33740,
+    "max_chars": 28,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "천상현이 고개 숙여 조리하고, 뒤편 검은 셰프는 재료를 섞는다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-001",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "천상현이 고개 숙여 조리하고, 뒤편 검은 셰프는 재료를 섞는다.",
+    "audio_duration_ms": 4750,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 1,
+    "start_ms": 37980,
+    "end_ms": 40840,
+    "max_chars": 14,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "정장 차림 남성이 반찬술사의 음식을 맛본다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "반찬을 시식한다",
+        "confidence": "high",
+        "max_chars": 10,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-002",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "반찬을 시식한다",
+    "audio_duration_ms": 1162,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 2,
+    "start_ms": 50640,
+    "end_ms": 52600,
+    "max_chars": 10,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "반찬술사가 허리 숙여 인사한다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 7,
+        "rejected_reason": "감사 인사 뒤 고개 숙이는 동작은 대사로 충분히 전달되며, 이어지는 재료 공개는 직후 대사에서 설명된다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "tts_overflow_unshrinkable",
+    "source": "vlm"
+  },
+  {
+    "gap_index": 3,
+    "start_ms": 70080,
+    "end_ms": 72040,
+    "max_chars": 10,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "반찬술사가 박대를 썬다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "박대를 썬다",
+        "confidence": "high",
+        "max_chars": 7,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-003",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "박대를 썬다",
+    "audio_duration_ms": 875,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 4,
+    "start_ms": 97480,
+    "end_ms": 99760,
+    "max_chars": 11,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": "not_meaningful:소스를 끼얹는 조리법은 직전 대사로 전달됐고, 박대를 써는 장면도 앞선 해설 및 직후 대사와 중복된다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "not_meaningful:소스를 끼얹는 조리법은 직전 대사로 전달됐고, 박대를 써는 장면도 앞선 해설 및 직후 대사와 중복된다."
+  },
+  {
+    "gap_index": 5,
+    "start_ms": 105540,
+    "end_ms": 107160,
+    "max_chars": 8,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": "not_meaningful:박대를 굽는 장면은 직전 대사로 전달됐고, 써는 동작도 직후 대사와 앞선 해설에 있어 생략한다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "not_meaningful:박대를 굽는 장면은 직전 대사로 전달됐고, 써는 동작도 직후 대사와 앞선 해설에 있어 생략한다."
+  },
+  {
+    "gap_index": 6,
+    "start_ms": 108840,
+    "end_ms": 109880,
+    "max_chars": 5,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": "not_meaningful:박대를 계속 써는 장면으로, 직전 대사와 앞선 화면해설에서 이미 전달됐다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "not_meaningful:박대를 계속 써는 장면으로, 직전 대사와 앞선 화면해설에서 이미 전달됐다."
+  },
+  {
+    "gap_index": 7,
+    "start_ms": 142960,
+    "end_ms": 144660,
+    "max_chars": 8,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": "not_meaningful:두부선에 소스를 끼얹는 모습은 직후 대사로 전달돼 생략한다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "not_meaningful:두부선에 소스를 끼얹는 모습은 직후 대사로 전달돼 생략한다."
+  },
+  {
+    "gap_index": 8,
+    "start_ms": 151520,
+    "end_ms": 154380,
+    "max_chars": 14,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "천상현이 손질하던 박대를 들어 올린다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 10,
+        "rejected_reason": "두 참가자의 조리 모습은 앞선 해설로 이미 전달됐고, 새로운 핵심 행동이나 정보가 없다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "tts_overflow_unshrinkable",
+    "source": "vlm"
+  },
+  {
+    "gap_index": 9,
+    "start_ms": 168970,
+    "end_ms": 170040,
+    "max_chars": 5,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "천상현이 간장을 계량한다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 4,
+        "rejected_reason": "천상현이 간장을 계량하지만 직후 대사에서 간장 베이스를 설명해 행동의 핵심이 전달된다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "tts_overflow_unshrinkable",
+    "source": "vlm"
+  },
+  {
+    "gap_index": 10,
+    "start_ms": 191980,
+    "end_ms": 193140,
+    "max_chars": 6,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "천상현이 조림장을 끼얹는다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "끼얹는다",
+        "confidence": "high",
+        "max_chars": 4,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-004",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "끼얹는다",
+    "audio_duration_ms": 675,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 11,
+    "start_ms": 200360,
+    "end_ms": 204120,
+    "max_chars": 19,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "박대조림 뒤로 반찬술사와 천상현이 나란히 선다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "박대조림이 완성된다",
+        "confidence": "high",
+        "max_chars": 13,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-005",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "박대조림이 완성된다",
+    "audio_duration_ms": 1575,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 12,
+    "start_ms": 212240,
+    "end_ms": 213400,
+    "max_chars": 6,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": "not_meaningful:천상현의 정적인 얼굴 클로즈업이며, 곧 반찬술사의 반박 대사가 이어져 별도 해설 가치가 낮다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "not_meaningful:천상현의 정적인 얼굴 클로즈업이며, 곧 반찬술사의 반박 대사가 이어져 별도 해설 가치가 낮다."
+  },
+  {
+    "gap_index": 13,
+    "start_ms": 242480,
+    "end_ms": 244140,
+    "max_chars": 8,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "안대 쓴 심사위원이 주먹을 쥐고 음미한다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "곱씹는다",
+        "confidence": "high",
+        "max_chars": 6,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-006",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "곱씹는다",
+    "audio_duration_ms": 650,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 14,
+    "start_ms": 245080,
+    "end_ms": 248980,
+    "max_chars": 20,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "반찬술사와 천상현이 굳은 표정으로 나란히 선다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "둘은 말없이 지켜본다",
+        "confidence": "high",
+        "max_chars": 14,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-007",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "둘은 말없이 지켜본다",
+    "audio_duration_ms": 1512,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 15,
+    "start_ms": 257600,
+    "end_ms": 260400,
+    "max_chars": 14,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "박대조림 곁에 밥 한 공기가 놓여 있다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      },
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 10,
+        "rejected_reason": "눈 감는 동작은 순간적이고, 2번 요리는 직후 대사로 안내된다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "tts_overflow_unshrinkable",
+    "source": "vlm"
+  },
+  {
+    "gap_index": 16,
+    "start_ms": 285800,
+    "end_ms": 288060,
+    "max_chars": 11,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": "not_meaningful:천상현이 말없이 평가를 듣는 모습은 앞선 해설과 중복되고, 심사위원의 평가는 직후 대사로 전달된다."
+      }
+    ],
+    "status": "skipped",
+    "skip_reason": "not_meaningful:천상현이 말없이 평가를 듣는 모습은 앞선 해설과 중복되고, 심사위원의 평가는 직후 대사로 전달된다."
+  },
+  {
+    "gap_index": 17,
+    "start_ms": 318320,
+    "end_ms": 325060,
+    "max_chars": 34,
+    "candidate_max_chars": 38,
+    "describe_attempts": [
+      {
+        "text": "천상현이 고개 숙여 인사한 뒤 반찬술사와 포옹한다.",
+        "confidence": "high",
+        "max_chars": 38,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-008",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "천상현이 고개 숙여 인사한 뒤 반찬술사와 포옹한다.",
+    "audio_duration_ms": 3988,
+    "mode": "overlay",
+    "importance": "normal"
+  },
+  {
+    "gap_index": 18,
+    "start_ms": 341680,
+    "end_ms": 361280,
+    "max_chars": 98,
+    "candidate_max_chars": 98,
+    "describe_attempts": [
+      {
+        "text": "반찬술사가 복도를 걸어 나가고, 선반에는 그의 명패만 남는다.",
+        "confidence": "high",
+        "max_chars": 98,
+        "rejected_reason": null
+      }
+    ],
+    "status": "published",
+    "segment_id": "seg-009",
+    "source": "vlm",
+    "confidence": "high",
+    "text": "반찬술사가 복도를 걸어 나가고, 선반에는 그의 명패만 남는다.",
+    "audio_duration_ms": 4675,
+    "mode": "overlay",
+    "importance": "normal"
+  }
+]

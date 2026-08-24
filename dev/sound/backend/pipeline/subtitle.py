@@ -31,8 +31,13 @@ def build_srt(
             entries.append((int(s["start_ms"]), int(s["end_ms"]), text))
     for seg in narration_segments:
         text = str(seg["text"]).strip()
-        if text:
-            entries.append((int(seg["start_ms"]), int(seg["end_ms"]), f"[화면해설] {text}"))
+        if not text:
+            continue
+        start_ms = int(seg["trigger_ms"])
+        # overlay는 deadline_ms가 종료 시각이고, extended는 영상이 멈춘 채로
+        # 클립이 끝날 때까지 재생되므로 trigger_ms + 실제 음성 길이가 종료 시각이다.
+        end_ms = int(seg["deadline_ms"]) if seg["mode"] == "overlay" else start_ms + int(seg["audio"]["duration_ms"])
+        entries.append((start_ms, end_ms, f"[화면해설:{seg['mode']}] {text}"))
 
     entries.sort(key=lambda e: e[0])
 

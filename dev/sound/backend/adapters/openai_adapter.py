@@ -2,6 +2,7 @@ import base64
 import json
 from typing import List, Optional
 
+import cv2
 import soundfile as sf
 from openai import OpenAI
 
@@ -30,8 +31,28 @@ DESCRIBE_SYSTEM_PROMPT = (
 
 
 def _encode_image(image_path: str) -> str:
-    with open(image_path, "rb") as f:
-        return base64.b64encode(f.read()).decode("utf-8")
+    """runs/ 의 원본 프레임은 그대로 두고, API 전송용으로만 축소·재압축한다.
+
+    OpenAI 비전 모델은 해상도에 비례해 타일 단위로 과금하므로, 인식에 지장
+    없는 선까지 긴 변을 줄이는 것만으로 입력 토큰 비용이 크게 줄어든다.
+    """
+    image = cv2.imread(image_path)
+    if image is None:
+        with open(image_path, "rb") as f:
+            return base64.b64encode(f.read()).decode("utf-8")
+
+    height, width = image.shape[:2]
+    longest_side = max(height, width)
+    if longest_side > config.VISION_MAX_DIMENSION_PX:
+        scale = config.VISION_MAX_DIMENSION_PX / longest_side
+        new_size = (max(1, round(width * scale)), max(1, round(height * scale)))
+        image = cv2.resize(image, new_size, interpolation=cv2.INTER_AREA)
+
+    ok, buf = cv2.imencode(".jpg", image, [cv2.IMWRITE_JPEG_QUALITY, config.VISION_JPEG_QUALITY])
+    if not ok:
+        with open(image_path, "rb") as f:
+            return base64.b64encode(f.read()).decode("utf-8")
+    return base64.b64encode(buf.tobytes()).decode("utf-8")
 
 
 class OpenAIAdapter(ModelAdapter):

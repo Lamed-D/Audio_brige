@@ -1,0 +1,28 @@
+
+# Dependencies and local tooling
+node_modules/
+.cache/
+coverage/
+*.log
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Webpack output. Static extension assets remain tracked.
+extension/*.js
+extension/*.js.map
+
+# Local verification artifacts
+output/
+dist/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

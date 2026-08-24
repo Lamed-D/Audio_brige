@@ -1,0 +1,26 @@
+{
+  "name": "voice-bridge-extension",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VOICE BRIDGE Chrome extension POC",
+  "license": "UNLICENSED",
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx src/test.ts",
+    "build:dev": "webpack --mode development",
+    "build:prod": "webpack --mode production",
+    "check": "npm run typecheck && npm test && npm run build:dev",
+    "watch": "webpack --mode development --watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.327",
+    "@types/node": "^24.0.3",
+    "terser-webpack-plugin": "^5.3.14",
+    "ts-loader": "^9.5.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  }
+}

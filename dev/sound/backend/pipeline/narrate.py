@@ -16,6 +16,8 @@ import re
 from dataclasses import dataclass, field
 from typing import List, Optional, Tuple
 
+import cv2
+
 import config
 from adapters.base import ModelAdapter
 
@@ -34,6 +36,39 @@ def _is_duplicate(text: str, *text_lists: List[str]) -> bool:
             if _similar(text, other) >= config.DUPLICATE_SIMILARITY_THRESHOLD:
                 return True
     return False
+
+
+def _frame_signature(frame_path: str, size: Tuple[int, int] = (160, 90)):
+    img = cv2.imread(frame_path, cv2.IMREAD_GRAYSCALE)
+    if img is None:
+        return None
+    return cv2.resize(img, size, interpolation=cv2.INTER_AREA)
+
+
+def _dedupe_similar_frames(frame_paths: List[str]) -> List[str]:
+    """직전에 채택한 프레임과 화면이 거의 같은 프레임은 API 호출 전에 걸러낸다.
+
+    gap 안에서 초당 3장씩 찍다 보니, 정지된 화면이 이어지는 구간은 같은
+    그림을 여러 장 중복으로 보내는 셈이다. 시간순으로 훑으며 직전 채택
+    프레임과 그레이스케일 평균 밝기 차이가 threshold 미만이면 건너뛴다.
+    """
+    if len(frame_paths) <= 1:
+        return frame_paths
+
+    kept: List[str] = [frame_paths[0]]
+    last_sig = _frame_signature(frame_paths[0])
+    for path in frame_paths[1:]:
+        sig = _frame_signature(path)
+        if sig is None or last_sig is None:
+            kept.append(path)
+            last_sig = sig
+            continue
+        diff = float(cv2.absdiff(sig, last_sig).mean()) / 255.0
+        if diff < config.FRAME_SIMILARITY_DIFF_THRESHOLD:
+            continue
+        kept.append(path)
+        last_sig = sig
+    return kept
 
 
 def _pick_frames(frame_paths: List[str], limit: int) -> List[str]:
@@ -126,6 +161,11 @@ def decide(
 ) -> Tuple[Optional[Decision], NarrateTrace]:
     trace = NarrateTrace()
 
+    if not frame_paths:
+        trace.skip_reason = "no_frames"
+        return None, trace
+
+    frame_paths = _dedupe_similar_frames(frame_paths)
     if not frame_paths:
         trace.skip_reason = "no_frames"
         return None, trace

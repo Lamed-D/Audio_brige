@@ -22,8 +22,8 @@ def test_valid_manifest_is_accepted(repository, publish):
     ("mutate", "expected_field"),
     [
         (
-            lambda manifest: manifest["segments"][0].update(start_ms=1_500),
-            "segments[0].end_ms",
+            lambda manifest: manifest["segments"][0].update(deadline_ms=900),
+            "segments[0].deadline_ms",
         ),
         (
             lambda manifest: manifest["segments"][0]["audio"].update(duration_ms=501),
@@ -58,9 +58,33 @@ def test_manifest_contract_rejects_overlap(publish):
     changed = deepcopy(manifest)
     second = deepcopy(changed["segments"][0])
     second["id"] = "seg-002"
-    second["start_ms"] = 1_400
-    second["end_ms"] = 1_900
+    second["trigger_ms"] = 1_400
+    second["deadline_ms"] = 1_900
     changed["segments"].append(second)
     with pytest.raises(ContractValidationError, match="겹칩니다"):
+        validate_manifest(changed)
+
+
+def test_manifest_contract_rejects_extended_without_high_importance(publish):
+    manifest, _, _ = publish()
+    changed = deepcopy(manifest)
+    changed["segments"][0].pop("deadline_ms")
+    changed["segments"][0]["mode"] = "extended"
+    with pytest.raises(ContractValidationError, match="importance"):
+        validate_manifest(changed)
+
+
+def test_manifest_contract_rejects_close_extended_segments(publish):
+    manifest, _, _ = publish()
+    changed = deepcopy(manifest)
+    changed["segments"][0].pop("deadline_ms")
+    changed["segments"][0]["mode"] = "extended"
+    changed["segments"][0]["importance"] = "high"
+
+    second = deepcopy(changed["segments"][0])
+    second["id"] = "seg-002"
+    second["trigger_ms"] = changed["segments"][0]["trigger_ms"] + 5_000
+    changed["segments"].append(second)
+    with pytest.raises(ContractValidationError, match="extended 간격"):
         validate_manifest(changed)
 

@@ -26,6 +26,16 @@ from core.contracts import (
 JOB_ID_RE = re.compile(r"^[0-9a-f]{32}$")
 ACTIVE_JOB_STATUSES = {"queued", "processing"}
 ALL_JOB_STATUSES = ACTIVE_JOB_STATUSES | {"ready", "failed"}
+JOB_STAGES = {
+    "queued",
+    "media_preparation",
+    "audio_analysis",
+    "visual_analysis",
+    "description_generation",
+    "speech_synthesis",
+    "validation",
+}
+JOB_ETA_CONFIDENCES = {"low", "medium", "high"}
 
 
 class StorageError(RuntimeError):
@@ -283,11 +293,18 @@ class FileRepository:
                     f"{path.name} 실측 길이 {actual_duration_ms}ms와 manifest 길이 "
                     f"{declared_duration_ms}ms가 일치하지 않습니다"
                 )
-            gap_duration_ms = segment["end_ms"] - segment["start_ms"]
-            if actual_duration_ms > gap_duration_ms:
-                raise ManifestInvalid(
-                    f"{path.name} 실측 길이가 세그먼트 구간을 넘습니다"
-                )
+            if segment["mode"] == "overlay":
+                window_ms = segment["deadline_ms"] - segment["trigger_ms"]
+                if actual_duration_ms > window_ms:
+                    raise ManifestInvalid(
+                        f"{path.name} 실측 길이가 overlay deadline을 넘습니다"
+                    )
+            else:
+                max_extended_ms = manifest["playback"]["max_extended_duration_ms"]
+                if actual_duration_ms > max_extended_ms:
+                    raise ManifestInvalid(
+                        f"{path.name} 실측 길이가 extended 상한을 넘습니다"
+                    )
 
     def next_revision(self, provider: str, video_id: str) -> int:
         """다음에 게시할 manifest의 revision 번호. 기존 manifest가 깨져 있어도
@@ -381,6 +398,22 @@ class FileRepository:
         duration_ms = raw.get("duration_ms")
         if isinstance(duration_ms, bool) or not isinstance(duration_ms, int) or duration_ms <= 0:
             raise JobInvalid(f"{path.name}: duration_ms는 양의 정수여야 합니다")
+
+        # v1.2 진행률 필드는 processing 이전 job(과거 파일)에는 없을 수 있으므로
+        # 있을 때만 형식을 검증한다 — 없다고 파일 전체를 무효로 만들지 않는다.
+        stage = raw.get("stage")
+        if stage is not None and stage not in JOB_STAGES:
+            raise JobInvalid(f"{path.name}: 알 수 없는 stage입니다")
+        progress_percent = raw.get("progress_percent")
+        if progress_percent is not None and (
+            isinstance(progress_percent, bool)
+            or not isinstance(progress_percent, int)
+            or not (0 <= progress_percent <= 100)
+        ):
+            raise JobInvalid(f"{path.name}: progress_percent는 0~100 정수여야 합니다")
+        eta_confidence = raw.get("eta_confidence")
+        if eta_confidence is not None and eta_confidence not in JOB_ETA_CONFIDENCES:
+            raise JobInvalid(f"{path.name}: 알 수 없는 eta_confidence입니다")
         return raw
 
     def _read_job(self, path: Path) -> dict[str, Any]:
@@ -428,27 +461,90 @@ class FileRepository:
         ]
         return max(matches, key=lambda job: job["created_at"], default=None)
 
-    def create_or_get_job(self, video: CatalogVideo) -> dict[str, Any]:
+    def create_or_get_job(self, video: CatalogVideo) -> tuple[dict[str, Any], str]:
+        """반환값은 (job, outcome). outcome은 "active"|"ready"|"queued" 중 하나다.
+
+        연동규격 6.2: POST /v1/jobs는 신규 생성 202, 즉시 준비 또는 기존 결과
+        200, 동일 작업이 이미 진행 중이면 409를 모두 JobStatus 본문으로 반환해야
+        한다 — API 계층이 outcome으로 상태 코드를 결정한다.
+        """
         with self._job_lock:
             existing = self.latest_job_for_video(video.provider, video.video_id)
             if existing and existing["status"] in ACTIVE_JOB_STATUSES:
-                return self.refresh_job(existing["job_id"]) or existing
+                refreshed = self.refresh_job(existing["job_id"]) or existing
+                if refreshed["status"] in ACTIVE_JOB_STATUSES:
+                    return refreshed, "active"
+                existing = refreshed
             if existing and existing["status"] == "ready":
                 manifest = self.find_manifest(video.provider, video.video_id, video)
                 if manifest is not None:
-                    return existing
+                    return existing, "ready"
 
             manifest = self.find_manifest(video.provider, video.video_id, video)
             now = _now_iso()
+            is_ready = manifest is not None
             job = {
                 "job_id": uuid.uuid4().hex,
                 "provider": video.provider,
                 "video_id": video.video_id,
                 "duration_ms": video.duration_ms,
-                "status": "ready" if manifest else "queued",
+                "status": "ready" if is_ready else "queued",
+                "stage": "validation" if is_ready else "queued",
+                "progress_percent": 100 if is_ready else 0,
+                "eta_seconds": None,
+                "eta_confidence": None,
                 "created_at": now,
                 "updated_at": now,
             }
+            self._write_job(job)
+            return job, ("ready" if is_ready else "queued")
+
+    def update_job_progress(
+        self,
+        job_id: str,
+        *,
+        stage: str,
+        progress_percent: int,
+        eta_seconds: Optional[int] = None,
+        eta_confidence: Optional[str] = None,
+    ) -> Optional[dict[str, Any]]:
+        """실행 중인 파이프라인이 자기 job의 진행 상태를 실시간으로 기록한다.
+
+        동일 job에서 progress_percent가 줄어들지 않게 강제한다(연동규격 6.3:
+        "동일 job에서 감소 금지") — 순서가 뒤바뀐 콜백이 진행률을 되돌리지
+        않게 한다. 이미 terminal 상태(ready/failed)인 job은 건드리지 않는다.
+        """
+        if stage not in JOB_STAGES:
+            raise JobInvalid(f"알 수 없는 stage입니다: {stage}")
+        with self._job_lock:
+            job = self.get_job(job_id)
+            if job is None or job["status"] not in ACTIVE_JOB_STATUSES:
+                return job
+            job["status"] = "processing"
+            job["stage"] = stage
+            job["progress_percent"] = max(progress_percent, job.get("progress_percent") or 0)
+            job["eta_seconds"] = eta_seconds
+            job["eta_confidence"] = eta_confidence
+            job["updated_at"] = _now_iso()
+            self._write_job(job)
+            return job
+
+    def fail_job(
+        self, job_id: str, *, code: str, message: str, retryable: bool = False
+    ) -> Optional[dict[str, Any]]:
+        """파이프라인 실행이 예외로 끝났을 때 job을 terminal 상태로 확정한다.
+
+        이게 없으면 실행이 실패해도 job이 processing에 멈춰 있어 폴링하는
+        클라이언트가 영원히 기다리게 된다(연동규격 BE-10: 모든 job은 terminal
+        상태로 끝나야 한다).
+        """
+        with self._job_lock:
+            job = self.get_job(job_id)
+            if job is None or job["status"] not in ACTIVE_JOB_STATUSES:
+                return job
+            job["status"] = "failed"
+            job["error"] = {"code": code, "message": message, "retryable": retryable}
+            job["updated_at"] = _now_iso()
             self._write_job(job)
             return job
 
@@ -489,6 +585,10 @@ class FileRepository:
             if manifest is not None:
                 if job["status"] != "ready" or "error" in job:
                     job["status"] = "ready"
+                    job["stage"] = "validation"
+                    job["progress_percent"] = 100
+                    job["eta_seconds"] = None
+                    job["eta_confidence"] = None
                     job.pop("error", None)
                     job["updated_at"] = _now_iso()
                     self._write_job(job)
@@ -497,6 +597,7 @@ class FileRepository:
                 job["error"] = {
                     "code": "MANIFEST_NOT_FOUND",
                     "message": "ready 작업의 매니페스트가 더 이상 존재하지 않습니다",
+                    "retryable": False,
                 }
                 job["updated_at"] = _now_iso()
                 self._write_job(job)

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VOICE BRIDGE</title>
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>VOICE BRIDGE</h1>
+    </header>
+
+    <main>
+      <section class="status-section" aria-labelledby="scheduler-heading">
+        <h2 id="scheduler-heading">화면해설</h2>
+        <p id="scheduler-status" class="status" data-state="loading">
+          영상 연결 대기 중
+        </p>
+
+        <section
+          id="generation-status"
+          class="generation-status"
+          aria-labelledby="generation-heading"
+          hidden
+        >
+          <h3 id="generation-heading">화면해설 생성</h3>
+          <p id="job-summary" class="generation-summary">상태 확인 중</p>
+
+          <div id="job-progress-content" hidden>
+            <div class="progress-heading">
+              <span id="job-stage">분석 대기 중</span>
+              <output id="job-progress-output" for="job-progress">0%</output>
+            </div>
+            <progress
+              id="job-progress"
+              min="0"
+              max="100"
+              value="0"
+              aria-labelledby="job-stage"
+              aria-describedby="job-eta"
+            >0%</progress>
+            <p id="job-eta" class="generation-detail">예상 시간 계산 중</p>
+          </div>
+
+          <div class="generation-actions">
+            <button id="job-create" class="command-button" type="button" hidden>
+              화면해설 만들기
+            </button>
+            <button id="job-status-check" class="command-button secondary" type="button" hidden>
+              현재 진행 상태 확인
+            </button>
+            <p class="sr-only">키보드에서는 Alt+Shift+S로도 현재 진행 상태를 확인할 수 있습니다.</p>
+            <button id="job-retry" class="command-button secondary" type="button" hidden>
+              다시 확인
+            </button>
+          </div>
+        </section>
+
+        <fieldset class="settings-group">
+          <legend class="sr-only">화면해설 재생 설정</legend>
+          <label class="control-row" for="description-enabled">
+            <span>화면해설 사용</span>
+            <input id="description-enabled" type="checkbox" checked />
+          </label>
+
+          <div class="range-control">
+            <div class="range-heading">
+              <label for="description-volume">화면해설 음량</label>
+              <output id="description-volume-output" for="description-volume">100%</output>
+            </div>
+            <input id="description-volume" type="range" min="0" max="100" step="10" value="100" />
+          </div>
+
+          <div class="range-control">
+            <div class="range-heading">
+              <label for="duck-factor">해설 중 원본 음량</label>
+              <output id="duck-factor-output" for="duck-factor">35%</output>
+            </div>
+            <input id="duck-factor" type="range" min="0" max="100" step="5" value="35" />
+          </div>
+
+          <label class="control-row" for="auto-pause-enabled">
+            <span>긴 화면해설 재생 시 영상 자동 정지</span>
+            <input
+              id="auto-pause-enabled"
+              type="checkbox"
+              aria-describedby="auto-pause-description"
+              checked
+            />
+          </label>
+          <p id="auto-pause-description" class="sr-only">
+            끄면 영상 정지가 필요한 긴 화면해설은 재생하지 않습니다.
+          </p>
+        </fieldset>
+
+        <div class="current-description" aria-labelledby="current-description-heading">
+          <h3 id="current-description-heading">현재 해설</h3>
+          <p id="current-description-text">재생 대기 중</p>
+        </div>
+      </section>
+
+      <section class="status-section" aria-labelledby="player-heading">
+        <h2 id="player-heading">현재 영상</h2>
+        <p id="player-status" class="status" data-state="loading" role="status" aria-live="polite">
+          플레이어 탐색 중
+        </p>
+        <p id="player-title" class="video-title">영상 정보 없음</p>
+
+        <dl class="metadata">
+          <div>
+            <dt>재생 상태</dt>
+            <dd id="player-state">-</dd>
+          </div>
+          <div>
+            <dt>재생 위치</dt>
+            <dd id="player-position">-</dd>
+          </div>
+          <div>
+            <dt>재생 속도</dt>
+            <dd id="player-rate">-</dd>
+          </div>
+        </dl>
+      </section>
+
+      <details class="diagnostics">
+        <summary>진단 정보</summary>
+        <div class="diagnostics-content">
+          <section class="diagnostic-section" aria-labelledby="status-heading">
+            <h2 id="status-heading">확장프로그램</h2>
+            <p id="runtime-status" class="status" data-state="loading" role="status" aria-live="polite">
+              확인 중
+            </p>
+            <dl class="metadata">
+              <div>
+                <dt>확장 버전</dt>
+                <dd id="extension-version">-</dd>
+              </div>
+              <div>
+                <dt>연동 규격</dt>
+                <dd id="schema-version">-</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="diagnostic-section" aria-labelledby="diagnostic-video-heading">
+            <h2 id="diagnostic-video-heading">영상·해설 데이터</h2>
+            <dl class="metadata">
+              <div>
+                <dt>플랫폼</dt>
+                <dd id="player-provider">-</dd>
+              </div>
+              <div>
+                <dt>영상 ID</dt>
+                <dd id="player-video-id" class="technical-value">-</dd>
+              </div>
+              <div>
+                <dt>Manifest</dt>
+                <dd id="scheduler-manifest-id" class="technical-value">-</dd>
+              </div>
+              <div>
+                <dt>처리 구간</dt>
+                <dd id="scheduler-progress">-</dd>
+              </div>
+              <div>
+                <dt>음성 엔진</dt>
+                <dd id="scheduler-audio-state">-</dd>
+              </div>
+              <div>
+                <dt>다음 구간</dt>
+                <dd id="scheduler-next">-</dd>
+              </div>
+              <div>
+                <dt>최근 결과</dt>
+                <dd id="scheduler-last-event">-</dd>
+              </div>
+            </dl>
+          </section>
+        </div>
+      </details>
+    </main>
+
+    <p id="accessibility-announcement" class="sr-only" role="status" aria-live="polite"></p>
+
+    <script src="../sidepanel.js"></script>
+  </body>
+</html>
